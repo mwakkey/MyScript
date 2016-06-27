@@ -1,10 +1,11 @@
+/*
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include <stdio.h>
 #include <cmath>
 
 #pragma comment(lib, "glut32.lib")
-/*
+
 void Point(int x, int y, float size)
 {
 	glPointSize(size);//ÉsÉNÉZÉãêî
@@ -135,24 +136,26 @@ int main(int argc, char* argv[])
 	return 0;
 }
 */
-#include <vector>
+
 #include <iostream>
-#include "PerlinNoise.h"
+#include <vector>
+#include "SimplexNoise.h"
 int main(int argc, char* argv[])
 {
-	PerlinNoise noise(1, 1, 10, 10, 100, 100);
+	std::cout << 'a' << std::endl;
+	SimplexNoise::setNoiseSeed();
+	
 
-	std::vector<std::vector<float>> height_map = noise.GetHeightMap();
-
-
-	for each (auto row in height_map)
-	{
-		for each(auto col in row)
-		{
-			std::cout << col << std::endl;
+	float height[100][100];
+	int ctrlPoint = 17;
+	for (int i = 0; i < 100; ++i) {
+		for (int j = 0; j < 100; ++j) {
+			height[i][j] = SimplexNoise::SimplexNoiseInRange2D((float)(i / 17), (float)(j / 17), 0.0f, 10.0f);
+			std::cout << height[i][j] << std::endl;
 		}
-		std::cout << '\n' << std::endl;
 	}
+	std::cout << '\n' << std::endl;
+	
 
 	return 0;
 }

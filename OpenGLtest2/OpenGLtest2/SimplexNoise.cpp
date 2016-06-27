@@ -6,10 +6,6 @@
 #define FASTFLOOR(x) ( ((x)>0) ? ((int)x) : (((int)x)-1) )
 
 
-SimplexNoise::SimplexNoise()
-{
-	MathFunc::xorShift(256386426, 136124029);
-}
 
 unsigned int SimplexNoise::perm[512] = { 151,160,137,91,90,15,
 131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
@@ -41,6 +37,7 @@ unsigned int SimplexNoise::perm[512] = { 151,160,137,91,90,15,
 
 void SimplexNoise::setNoiseSeed()
 {
+	MathFunc::xorShift(256386426, 136124029);
 	for (int i = 0; i < 256;++i)
 	{
 		int nextNum = MathFunc::rand(0, 256);

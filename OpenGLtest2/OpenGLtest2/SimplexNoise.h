@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+
 
 
 class SimplexNoise {
@@ -12,7 +12,6 @@ private:
 	static float  grad(int hash, float x, float y, float z, float t);
 
 public:
-	SimplexNoise();
 	static void setNoiseSeed();
 	static float SimplexNoise1D(float x);
 	static float SimplexNoise2D(float x, float y);
