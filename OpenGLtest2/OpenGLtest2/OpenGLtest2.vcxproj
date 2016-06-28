@@ -160,6 +160,7 @@
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="titleScene.cpp" />
     <ClCompile Include="wave.cpp" />
+    <ClCompile Include="XorShift.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoScene.h" />

@@ -28,13 +28,14 @@ void Controller::flagClear()
 	keyFlag = 0;
 }
 
-void Controller::inputJoyStick(int Hz)
+unsigned int Controller::inputJoyStick(int Hz)
 {
 	glutJoystickFunc(joystick, Hz);//Hz[ms]に一回ジョイスティック入力を受け付ける
+	return keyFlag;
 }
 
 
-bool Controller::putDown(unsigned int buttonID)
+unsigned int Controller::putDown(unsigned int buttonID)
 {
 
 	return (keyFlag & (2 << buttonID));

@@ -40,6 +40,9 @@
     <Filter Include="ヘッダー ファイル\NoiseH">
       <UniqueIdentifier>{88c900be-411e-4ba9-b6ab-0d2eeccff88b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MathCpp">
+      <UniqueIdentifier>{fd31ee23-a2b1-40bc-9fdf-45875b9f539e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -80,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="SimplexNoise.cpp">
       <Filter>ソース ファイル\NoiseCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="XorShift.cpp">
+      <Filter>ソース ファイル\MathCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

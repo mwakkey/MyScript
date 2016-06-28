@@ -6,7 +6,7 @@ namespace Controller
 	void flagClear();
 
 	void joystick(unsigned int ButtonMask, int x, int y, int z);
-	void inputJoyStick(int Hz);
+	unsigned int inputJoyStick(int Hz);
 	
-	bool putDown(unsigned int butonID);
+	unsigned int putDown(unsigned int butonID);
 };
