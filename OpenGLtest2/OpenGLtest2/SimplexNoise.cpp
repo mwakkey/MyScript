@@ -3,8 +3,7 @@
 #include "XorShift.h"
 
 
-#define FASTFLOOR(x) ( ((x)>0) ? ((int)x) : (((int)x)-1) )
-
+#define FASTFLOOR(x) ( ((x)>0) ? ((int)x) : (((int)x)-1) )//intŠÛ‚ß‚Í¬”“_ˆÈ‰ºØÌ‚Ä
 
 
 unsigned int SimplexNoise::perm[512] = { 151,160,137,91,90,15,

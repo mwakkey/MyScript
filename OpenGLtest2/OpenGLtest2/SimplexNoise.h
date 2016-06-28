@@ -11,6 +11,7 @@ private:
 	static float  grad(int hash, float x, float y, float z);
 	static float  grad(int hash, float x, float y, float z, float t);
 
+
 public:
 	static void setNoiseSeed();
 	static float SimplexNoise1D(float x);

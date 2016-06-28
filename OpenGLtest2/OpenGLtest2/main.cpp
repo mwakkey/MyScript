@@ -143,14 +143,14 @@ int main(int argc, char* argv[])
 int main(int argc, char* argv[])
 {
 	std::cout << 'a' << std::endl;
-	SimplexNoise::setNoiseSeed();
+	//SimplexNoise::setNoiseSeed();
 	
 
 	float height[100][100];
 	int ctrlPoint = 17;
 	for (int i = 0; i < 100; ++i) {
 		for (int j = 0; j < 100; ++j) {
-			height[i][j] = SimplexNoise::SimplexNoiseInRange2D((float)(i / 17), (float)(j / 17), 0.0f, 10.0f);
+			height[i][j] = SimplexNoise::SimplexNoiseInRange2D(0.356f, 0.792f, 0.0f, 10.0f);
 			std::cout << height[i][j] << std::endl;
 		}
 	}
