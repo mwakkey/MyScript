@@ -36,7 +36,7 @@ unsigned int SimplexNoise::perm[512] = { 151,160,137,91,90,15,
 
 void SimplexNoise::setNoiseSeed()
 {
-	MathFunc::XorShift::xorShift(256386426, 136124029);
+	MathFunc::XorShift::xorShift(123456789, 259529889);
 	for (int i = 0; i < 256;++i)
 	{
 		int nextNum = MathFunc::XorShift::rand(0, 256);

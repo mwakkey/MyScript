@@ -113,5 +113,11 @@
     <ClInclude Include="wave.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="OS.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="nnOS.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
