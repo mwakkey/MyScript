@@ -168,8 +168,6 @@
     <ClInclude Include="graphics.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
-    <ClInclude Include="nnOS.h" />
-    <ClInclude Include="OS.h" />
     <ClInclude Include="myGameScene.h" />
     <ClInclude Include="obj.h" />
     <ClInclude Include="SimplexNoise.h" />

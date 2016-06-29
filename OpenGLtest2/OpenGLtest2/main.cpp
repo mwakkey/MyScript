@@ -138,6 +138,7 @@ int main(int argc, char* argv[])
 */
 
 #include <iostream>
+#include <vector>
 #include "SimplexNoise.h"
 int main()
 {
@@ -145,16 +146,15 @@ int main()
 	SimplexNoise::setNoiseSeed();
 	
 
-	float height[100][100];
+	std::vector<std::vector<float>> height(10000,std::vector<float>(10000));
 	//int ctrlPoint = 17;
-	for (int i = 0; i < 100; ++i) {
-		for (int j = 0; j < 100; ++j) {
-			height[i][j] = SimplexNoise::SimplexNoiseInRange2D((float)i,(float)j, -10.0f, 10.0f);
+	for (int i = 0; i < 10000; ++i) {
+		for (int j = 0; j < 10000; ++j) {
+			height[i][j] = SimplexNoise::SimplexNoiseInRange2D(2.1f*i,6.7f*j, -100.0f, 100.0f);
 			std::cout << height[i][j] << std::flush;
 		}
-		std::cout << std::endl;
 	}
-	
+	std::cout << std::endl;
 
 	return 0;
 }
