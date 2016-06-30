@@ -1,15 +1,9 @@
 #include "controller.h"
-#include <vector>
 #include <gl/glut.h>
 #include <numeric>
 
 //ゲーム内でのキー番号と対応するキーのマップ
 unsigned int keyFlag;
-
-void Controller::setController()
-{
-	flagClear();
-}
 
 void Controller::joystick(unsigned int ButtonMask, int x, int y, int z)
 {
@@ -23,22 +17,25 @@ void Controller::joystick(unsigned int ButtonMask, int x, int y, int z)
 
 }
 
-void Controller::flagClear()
-{
-	keyFlag = 0;
-}
 
-unsigned int Controller::inputJoyStick(int Hz)
+
+Controller::JoyPad::JoyPad()
 {
-	glutJoystickFunc(joystick, Hz);//Hz[ms]に一回ジョイスティック入力を受け付ける
-	return keyFlag;
+	myKeyFlag = 0;
 }
 
 
-unsigned int Controller::putDown(unsigned int buttonID)
+void Controller::JoyPad::inputJoyStick(int Hz)
+{
+	glutJoystickFunc(Controller::joystick, Hz);//Hz[ms]に一回ジョイスティック入力を受け付ける
+	myKeyFlag = keyFlag;
+}
+
+
+unsigned int Controller::JoyPad::putDown(unsigned int buttonID)
 {
 
-	return (keyFlag & (2 << buttonID));
+	return (myKeyFlag & (2 << buttonID));
 
 }
 
