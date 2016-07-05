@@ -141,8 +141,10 @@ int main(int argc, char* argv[])
 #include <vector>
 #include <numeric>
 #include "SimplexNoise.h"
+#include "csv.h"
 int main()
 {
+	/*
 	std::cout << std::endl;
 	//SimplexNoise::setNoiseSeed();
 	
@@ -160,6 +162,14 @@ int main()
 		std::cout << height[i] << std::flush;
 	}
 	std::cout << std::endl;
+	*/
+
+
+	/*
+	CSV csv("test.csv");
+	std::vector<std::vector<float>> data = { {0.4f,0.8f,0.3f},{0.04f,0.001f,0.8f},{0.6f,0.5f,0.7f} };
+	csv.csvWrite(data);
+	*/
 
 	return 0;
 }
