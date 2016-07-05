@@ -28,6 +28,9 @@
     <Filter Include="ソース ファイル\OpenGL">
       <UniqueIdentifier>{152ccc72-c2de-4495-a348-5fa1841868d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\CSV">
+      <UniqueIdentifier>{283eeced-7926-47dd-bad2-62e5006729a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +75,9 @@
     <ClCompile Include="XorShift.cpp">
       <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
+    <ClCompile Include="csv.cpp">
+      <Filter>ソース ファイル\CSV</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
@@ -112,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="wave.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="csv.h">
+      <Filter>ソース ファイル\CSV</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

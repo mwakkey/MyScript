@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller.cpp" />
+    <ClCompile Include="csv.cpp" />
     <ClCompile Include="demoScene.cpp" />
     <ClCompile Include="glsl.cpp" />
     <ClCompile Include="graphics.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="XorShift.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
     <ClInclude Include="glsl.h" />
     <ClInclude Include="graphics.h" />

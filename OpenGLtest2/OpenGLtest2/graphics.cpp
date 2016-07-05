@@ -51,12 +51,14 @@ void Graphics::setGL(int argc, char *argv[])
 	glutCreateWindow("シェーダーで描画");
 	glutDisplayFunc(Graphics::display);
 	glutIdleFunc(Graphics::idle);
+
+	Graphics::init();
 }
 
 //描画のメイン処理
 void Graphics::draw()
 {	
-	Graphics::init();
+
 	glutMainLoop();
 
 	return;

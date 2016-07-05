@@ -4,7 +4,6 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include "graphics.h"
-#include "controller.h"
 #include "screen.h"
 
 
@@ -21,7 +20,7 @@ void Screen::drawScreen()
 {
 	Graphics::setGL(0, nullptr);
 
-	Controller::inputJoyStick(30);
+
 	glsl->initGlsl("vertex.shader", "fragment.shader");
 	glsl->glslOn();
 
