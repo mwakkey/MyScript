@@ -1,26 +1,37 @@
 #pragma once
 #include <GL/glew.h>
 
-//プログラマブルシェーダークラス
-class GLSL
-{
-private:
-	GLuint shaderProg;
-	GLuint vertexShader, fragmentShader;
+#define WIDTH 640
+#define HEIGHT 480
 
-	//shader fileを読み込みコンパイルする
-	void readShaderCompile(GLuint shader, const char *file);
+namespace glManager {
+	void display();
+	void idle();
+	void init();
+	void setGL(int argc, char *argv[]);
+	void draw();
 
-	//リンクする
-	void link(GLuint prog);
+	//プログラマブルシェーダークラス
+	class GLSL
+	{
+	private:
+		GLuint shaderProg;
+		GLuint vertexShader, fragmentShader;
 
-public:
-	~GLSL();
-	//GLSLの初期化
-	void initGlsl(const char *vertexFile);
-	void initGlsl(const char *vertexFile, const char *fragmentFile);
+		//shader fileを読み込みコンパイルする
+		void readShaderCompile(GLuint shader, const char *file);
 
-	void glslOn();
-	void glslOff();
-	
-};
+		//リンクする
+		void link(GLuint prog);
+
+	public:
+		~GLSL();
+		//GLSLの初期化
+		void initGlsl(const char *vertexFile);
+		void initGlsl(const char *vertexFile, const char *fragmentFile);
+
+		void glslOn();
+		void glslOff();
+
+	};
+}

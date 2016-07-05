@@ -19,9 +19,6 @@
     <Filter Include="ソース ファイル\Control">
       <UniqueIdentifier>{a26b86b7-f0d5-4226-9342-ecb8a04145d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Math">
-      <UniqueIdentifier>{fd31ee23-a2b1-40bc-9fdf-45875b9f539e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Noise">
       <UniqueIdentifier>{b4a8e77c-50ef-48d9-a396-71fe23a0be2d}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,9 @@
     </Filter>
     <Filter Include="ソース ファイル\CSV">
       <UniqueIdentifier>{283eeced-7926-47dd-bad2-62e5006729a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Math">
+      <UniqueIdentifier>{fd31ee23-a2b1-40bc-9fdf-45875b9f539e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,9 +43,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="glsl.cpp">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="graphics.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="obj.cpp">
@@ -90,9 +87,6 @@
       <Filter>ソース ファイル\Noise</Filter>
     </ClInclude>
     <ClInclude Include="glsl.h">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="graphics.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="obj.h">

@@ -2,14 +2,13 @@
 #pragma comment(linker, "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 #pragma comment(lib, "glew32.lib")
 #include <GL/glew.h>
-#include <GL/glut.h>
-#include "graphics.h"
+#include <GL/glut.h>"
 #include "screen.h"
 
 
 Screen::Screen()
 {
-	glsl = new GLSL;
+	glsl = new glManager::GLSL;
 }
 Screen::~Screen()
 {
@@ -18,13 +17,13 @@ Screen::~Screen()
 
 void Screen::drawScreen()
 {
-	Graphics::setGL(0, nullptr);
+	glManager::setGL(0, nullptr);
 
 
 	glsl->initGlsl("vertex.shader", "fragment.shader");
 	glsl->glslOn();
 
-	Graphics::draw();
+	glManager::draw();
 
 	glsl->glslOff();
 

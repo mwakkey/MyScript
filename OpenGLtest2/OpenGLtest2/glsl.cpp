@@ -5,15 +5,73 @@
 
 #include <GL/glut.h>
 
+//具体的な描画処理
+void glManager::display(void)
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, WIDTH, HEIGHT);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(30.0, WIDTH / HEIGHT, 0.1, 2000.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(0.0, 0.0, 1500.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+
+	glutSwapBuffers();
+}
+
+void glManager::idle(void)
+{
+	glutForceJoystickFunc();
+	glutPostRedisplay();
+}
+
+void glManager::init()
+{
+	glewInit();
+	glClearColor(0.0, 0.0, 0.0, 1.0);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+
+}
 
 
-GLSL::~GLSL()
+//OpenGLで描画するための前準備をまとめて処理
+void glManager::setGL(int argc, char *argv[])
+{
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(WIDTH, HEIGHT);
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+	glutCreateWindow("シェーダーで描画");
+	glutDisplayFunc(glManager::display);
+	glutIdleFunc(glManager::idle);
+
+	glManager::init();
+}
+
+//描画のメイン処理
+void glManager::draw()
+{
+	glutMainLoop();
+
+	return;
+}
+
+
+
+glManager::GLSL::~GLSL()
 {
 	glDeleteProgram(shaderProg);
 }
 
 //shader fileを読み込みコンパイルする	
-void GLSL::readShaderCompile(GLuint shader, const char *file)
+void glManager::GLSL::readShaderCompile(GLuint shader, const char *file)
 {	
 	FILE *fp;
 	char *buf;
@@ -57,7 +115,7 @@ void GLSL::readShaderCompile(GLuint shader, const char *file)
 }
 
 //リンクする
-void GLSL::link(GLuint prog)
+void glManager::GLSL::link(GLuint prog)
 {
 	GLsizei size, len;
 	GLint linked;
@@ -76,7 +134,7 @@ void GLSL::link(GLuint prog)
 	}
 }
 //GLSLの初期化
-void GLSL::initGlsl(const char *vertexFile)
+void glManager::GLSL::initGlsl(const char *vertexFile)
 {
 	//glewの初期化
 	GLenum err = glewInit();
@@ -103,7 +161,7 @@ void GLSL::initGlsl(const char *vertexFile)
 }
 
 
-void GLSL::initGlsl(const char *vertexFile, const char *fragmentFile)
+void glManager::GLSL::initGlsl(const char *vertexFile, const char *fragmentFile)
 {
 	//glewの初期化
 	GLenum err = glewInit();
@@ -134,12 +192,12 @@ void GLSL::initGlsl(const char *vertexFile, const char *fragmentFile)
 }
 
 
-void GLSL::glslOn()
+void glManager::GLSL::glslOn()
 {
 	glUseProgram(shaderProg);
 }
 
-void GLSL::glslOff()
+void glManager::GLSL::glslOff()
 {
 	glUseProgram(0);
 }

@@ -151,7 +151,6 @@
     <ClCompile Include="csv.cpp" />
     <ClCompile Include="demoScene.cpp" />
     <ClCompile Include="glsl.cpp" />
-    <ClCompile Include="graphics.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="myGameScene.cpp" />
@@ -167,7 +166,6 @@
     <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
     <ClInclude Include="glsl.h" />
-    <ClInclude Include="graphics.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="myGameScene.h" />

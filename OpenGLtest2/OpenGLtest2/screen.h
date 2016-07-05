@@ -6,7 +6,7 @@
 class Screen
 {
 private:
-	GLSL *glsl;
+	glManager::GLSL *glsl;
 
 public:
 	Screen();
