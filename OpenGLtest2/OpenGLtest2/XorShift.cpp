@@ -2,8 +2,8 @@
 #include <cstdint>
 #include "XorShift.h"
 
-unsigned long MathFunc::XorShift::seed1;
-unsigned long MathFunc::XorShift::seed2;
+unsigned long MathFunc::XorShift::seed1=796485351;
+unsigned long MathFunc::XorShift::seed2=637826415;
 
 void MathFunc::XorShift::xorShift(const unsigned long s1, const unsigned long s2)
 {
