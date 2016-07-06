@@ -31,6 +31,9 @@
     <Filter Include="ソース ファイル\Math">
       <UniqueIdentifier>{fd31ee23-a2b1-40bc-9fdf-45875b9f539e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Color">
+      <UniqueIdentifier>{e469456b-8ff3-4111-817a-d6f3db95f957}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +78,9 @@
     <ClCompile Include="glManager.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="color.cpp">
+      <Filter>ソース ファイル\Color</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
@@ -115,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="glManager.h">
       <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>ソース ファイル\Color</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
