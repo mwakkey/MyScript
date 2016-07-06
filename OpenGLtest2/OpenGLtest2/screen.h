@@ -7,6 +7,10 @@ class Screen
 {
 private:
 	glManager::GLSL *glsl;
+	void display();
+	void idle();
+	void init();
+
 
 public:
 	Screen();

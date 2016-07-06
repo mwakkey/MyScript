@@ -63,9 +63,6 @@
     <ClCompile Include="myGameScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="screen.cpp">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="SimplexNoise.cpp">
       <Filter>ソース ファイル\Noise</Filter>
     </ClCompile>
@@ -74,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="csv.cpp">
       <Filter>ソース ファイル\CSV</Filter>
+    </ClCompile>
+    <ClCompile Include="glManager.cpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +90,6 @@
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="obj.h">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="screen.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="demoScene.h">
@@ -115,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="csv.h">
       <Filter>ソース ファイル\CSV</Filter>
+    </ClInclude>
+    <ClInclude Include="glManager.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

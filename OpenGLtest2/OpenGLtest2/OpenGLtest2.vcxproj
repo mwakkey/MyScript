@@ -150,6 +150,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="csv.cpp" />
     <ClCompile Include="demoScene.cpp" />
+    <ClCompile Include="glManager.cpp" />
     <ClCompile Include="glsl.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
@@ -157,7 +158,6 @@
     <ClCompile Include="NN.cpp" />
     <ClCompile Include="obj.cpp" />
     <ClCompile Include="SimplexNoise.cpp" />
-    <ClCompile Include="screen.cpp" />
     <ClCompile Include="titleScene.cpp" />
     <ClCompile Include="wave.cpp" />
     <ClCompile Include="XorShift.cpp" />
@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
+    <ClInclude Include="glManager.h" />
     <ClInclude Include="glsl.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
@@ -172,7 +173,6 @@
     <ClInclude Include="obj.h" />
     <ClInclude Include="SimplexNoise.h" />
     <ClInclude Include="sceneBase.h" />
-    <ClInclude Include="screen.h" />
     <ClInclude Include="titleScene.h" />
     <ClInclude Include="wave.h" />
     <ClInclude Include="XorShift.h" />

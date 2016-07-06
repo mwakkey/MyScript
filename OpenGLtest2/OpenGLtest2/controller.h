@@ -2,6 +2,8 @@
 
 namespace Controller
 {
+	//ゲーム内でのキー番号と対応するキーのマップ
+	unsigned int keyFlag;
 	void joystick(unsigned int ButtonMask, int x, int y, int z);
 
 	class JoyPad

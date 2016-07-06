@@ -2,9 +2,6 @@
 #include <gl/glut.h>
 #include <numeric>
 
-//ゲーム内でのキー番号と対応するキーのマップ
-unsigned int keyFlag;
-
 void Controller::joystick(unsigned int ButtonMask, int x, int y, int z)
 {
 	unsigned int tmp = 0;
@@ -16,8 +13,6 @@ void Controller::joystick(unsigned int ButtonMask, int x, int y, int z)
 	keyFlag = (ButtonMask << 4) + tmp;
 
 }
-
-
 
 Controller::JoyPad::JoyPad()
 {
