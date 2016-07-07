@@ -5,9 +5,9 @@
 class NeuralNet
 {
 private:
-	std::vector<float> input;
-	std::vector<float> output;
-	std::vector<std::vector<float>> hidden;
+	std::vector<float> inLayer;
+	std::vector<float> outLayer;
+	std::vector<std::vector<float>> hidLayer;
 
 	float activatefunc(float x, float alpha);
 
