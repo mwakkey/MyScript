@@ -126,4 +126,12 @@
       <Filter>ソース ファイル\Color</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="glsltest.vert">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </None>
+    <None Include="glsltest.frag">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </None>
+  </ItemGroup>
 </Project>

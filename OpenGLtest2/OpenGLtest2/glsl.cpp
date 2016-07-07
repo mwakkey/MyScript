@@ -73,6 +73,7 @@ void GLSL::link(GLuint prog)
 		}
 	}
 }
+
 //GLSL‚Ì‰Šú‰»
 void GLSL::initGlsl(const char *vertexFile)
 {

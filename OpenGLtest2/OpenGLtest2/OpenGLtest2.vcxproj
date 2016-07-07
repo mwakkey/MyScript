@@ -179,6 +179,10 @@
     <ClInclude Include="wave.h" />
     <ClInclude Include="XorShift.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="glsltest.frag" />
+    <None Include="glsltest.vert" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
