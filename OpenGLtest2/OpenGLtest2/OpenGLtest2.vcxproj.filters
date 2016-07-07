@@ -81,9 +81,6 @@
     <ClCompile Include="color.cpp">
       <Filter>ソース ファイル\Color</Filter>
     </ClCompile>
-    <ClCompile Include="neuralnet.cpp">
-      <Filter>ソース ファイル\NeuralNet</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
