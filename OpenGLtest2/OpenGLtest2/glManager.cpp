@@ -48,7 +48,7 @@ void glManager::init()
 	glCullFace(GL_BACK);
 
 	glManager::glsl = new GLSL;
-	glsl->initGlsl("vertex.shader", "fragment.shader");
+	glsl->initGlsl("glsltest.vert", "glsltest.frag");
 }
 
 //OpenGL‚Å•`‰æ‚·‚é‚½‚ß‚Ì‘O€”õ‚ğ‚Ü‚Æ‚ß‚Äˆ—
