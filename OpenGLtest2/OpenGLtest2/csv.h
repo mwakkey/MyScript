@@ -7,6 +7,7 @@ class CSV
 {
 private:
 	std::ofstream output;
+
 public:
 	CSV();
 	CSV(const char* csvFile);
