@@ -81,7 +81,7 @@
     <ClCompile Include="color.cpp">
       <Filter>ソース ファイル\Color</Filter>
     </ClCompile>
-    <ClCompile Include="neuralnet.cpp">
+    <ClCompile Include="cneuralnet.cpp">
       <Filter>ソース ファイル\NeuralNet</Filter>
     </ClCompile>
   </ItemGroup>
@@ -128,7 +128,7 @@
     <ClInclude Include="color.h">
       <Filter>ソース ファイル\Color</Filter>
     </ClInclude>
-    <ClInclude Include="neuralnet.h">
+    <ClInclude Include="cneuralnet.h">
       <Filter>ソース ファイル\NeuralNet</Filter>
     </ClInclude>
   </ItemGroup>
