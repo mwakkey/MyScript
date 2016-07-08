@@ -13,7 +13,7 @@ NeuralNet::NeuralNet(int input, int output, int hidden, int layer)
 }
 
 
-float NeuralNet::activatefunc(float x, float alpha)
+float NeuralNet::activateFunc(float x, float alpha)
 {
 	return x > 0 ? x : alpha*x; //Šˆ«‰»ŠÖ”RReLU
 }

@@ -156,6 +156,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="myGameScene.cpp" />
+    <ClCompile Include="neuralnet.cpp" />
     <ClCompile Include="obj.cpp" />
     <ClCompile Include="SimplexNoise.cpp" />
     <ClCompile Include="titleScene.cpp" />
