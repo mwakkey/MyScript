@@ -156,6 +156,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="myGameScene.cpp" />
+    <ClCompile Include="cneuralnet.cpp" />
     <ClCompile Include="obj.cpp" />
     <ClCompile Include="SimplexNoise.cpp" />
     <ClCompile Include="titleScene.cpp" />
@@ -172,7 +173,7 @@
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="myGameScene.h" />
-    <ClInclude Include="neuralnet.h" />
+    <ClInclude Include="cneuralnet.h" />
     <ClInclude Include="obj.h" />
     <ClInclude Include="SimplexNoise.h" />
     <ClInclude Include="sceneBase.h" />
