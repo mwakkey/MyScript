@@ -160,10 +160,11 @@
     <ClCompile Include="SimplexNoise.cpp" />
     <ClCompile Include="titleScene.cpp" />
     <ClCompile Include="wave.cpp" />
-    <ClCompile Include="XorShift.cpp" />
+    <ClCompile Include="xorShift.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="color.h" />
+    <ClInclude Include="convolution.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
     <ClInclude Include="glManager.h" />
@@ -177,7 +178,7 @@
     <ClInclude Include="sceneBase.h" />
     <ClInclude Include="titleScene.h" />
     <ClInclude Include="wave.h" />
-    <ClInclude Include="XorShift.h" />
+    <ClInclude Include="xorShift.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glsltest.frag" />

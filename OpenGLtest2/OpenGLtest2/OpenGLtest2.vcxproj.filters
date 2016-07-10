@@ -69,9 +69,6 @@
     <ClCompile Include="SimplexNoise.cpp">
       <Filter>ソース ファイル\Noise</Filter>
     </ClCompile>
-    <ClCompile Include="XorShift.cpp">
-      <Filter>ソース ファイル\Math</Filter>
-    </ClCompile>
     <ClCompile Include="csv.cpp">
       <Filter>ソース ファイル\CSV</Filter>
     </ClCompile>
@@ -81,13 +78,13 @@
     <ClCompile Include="color.cpp">
       <Filter>ソース ファイル\Color</Filter>
     </ClCompile>
+    <ClCompile Include="xorShift.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
       <Filter>ソース ファイル\Control</Filter>
-    </ClInclude>
-    <ClInclude Include="XorShift.h">
-      <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
     <ClInclude Include="SimplexNoise.h">
       <Filter>ソース ファイル\Noise</Filter>
@@ -127,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="neuralnet.h">
       <Filter>ソース ファイル\NeuralNet</Filter>
+    </ClInclude>
+    <ClInclude Include="convolution.h">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="xorShift.h">
+      <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
