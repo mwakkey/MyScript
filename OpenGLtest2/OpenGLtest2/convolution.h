@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include <vector>
+#include <algorithm>
 
 namespace MathFunc {
 	class Convolution {
@@ -17,13 +18,16 @@ namespace MathFunc {
 		}
 
 
-		//離散関数(スペクトル)の畳み込み
+		//離散関数(スペクトル)の畳み込み(0<=i<=t)
 		template <typename T>
-		static T conv(const std::vector<T>& f, const std::vector<T>& g, int t) {
+		static T conv(const std::vector<T>& f, const std::vector<T>& g, int filterSize) {
 			T tmp = (T)0;
+			//範囲外の値を参照しても増分は0なので計算しない
+			int right;
+			right = f.size() > filterSize&&g.size() > filterSize ? filterSize : std::min(f.size(), g.size());
 
-			for (int i = 0; i <= t; ++i) {
-				tmp += f.at(i) *g.at(t-i);
+			for (int i = 0; i <= right; ++i) {
+				tmp += f.at(i) *g.at(right-i);
 			}
 			return tmp;
 		}
