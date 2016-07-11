@@ -134,6 +134,9 @@
     <ClInclude Include="cneuralnet.h">
       <Filter>ソース ファイル\NeuralNet</Filter>
     </ClInclude>
+    <ClInclude Include="crossProd.h">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="glsltest.vert">

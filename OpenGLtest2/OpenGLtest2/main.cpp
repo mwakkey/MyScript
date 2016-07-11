@@ -23,26 +23,7 @@ void Line2D(int x1, int y1, int x2, int y2, float size)
 	glEnd();
 }
 
-void Square2D(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, float size)
-{
-	glLineWidth(size);
-	glBegin(GL_LINE_LOOP);//˜gü‚¾‚¯
-	glVertex2i(x1, y1);
-	glVertex2i(x2, y2);
-	glVertex2i(x3, y3);
-	glVertex2i(x4, y4);
-	glEnd();
-}
 
-void SquareFill2D(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
-{
-	glBegin(GL_QUADS);//“h‚è‚Â‚Ô‚µ
-	glVertex2i(x1, y1);
-	glVertex2i(x2, y2);
-	glVertex2i(x3, y3);
-	glVertex2i(x4, y4);
-	glEnd();
-}
 
 void Oval2D(float radius, int x, int y, float ovalx, float ovaly)
 {

@@ -1,9 +1,10 @@
 #pragma comment(linker, "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 #pragma comment(lib, "glew32.lib")
 #include <GL/glew.h>
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 
 #include "glManager.h"
+#include "crossProd.h"
 
 #define WIDTH 640
 #define HEIGHT 480
@@ -71,4 +72,24 @@ void glManager::draw()
 	glutMainLoop();
 
 	return;
+}
+
+//3次元座標の配列を基に3次元空間上にポリゴンを表示する
+void glManager::triPolygon3D(const float** pos)
+{
+	float vec1[3], vec2[3];
+	for (int i = 0; i < 3; ++i) {
+		vec1[i] = pos[1][i] - pos[0][i];
+		vec2[i] = pos[2][i] - pos[0][i];
+	}
+
+	glEnable(GL_NORMALIZE);
+	glBegin(GL_POLYGON);
+	glNormal3fv(MathFunc::CrossProd::cross3D(vec1, vec2));
+	glVertex3fv(pos[0]);
+	glVertex3fv(pos[1]);
+	glVertex3fv(pos[2]);
+
+	glEnd();
+	glDisable(GL_NORMALIZE);
 }

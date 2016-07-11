@@ -10,4 +10,6 @@ namespace glManager
 	void setGL(int argc, char *argv[]);
 	void draw();
 
+	void triPolygon3D(const float** pos);
+
 }

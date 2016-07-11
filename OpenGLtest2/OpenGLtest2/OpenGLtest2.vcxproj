@@ -166,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="color.h" />
     <ClInclude Include="convolution.h" />
+    <ClInclude Include="crossProd.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
     <ClInclude Include="glManager.h" />
