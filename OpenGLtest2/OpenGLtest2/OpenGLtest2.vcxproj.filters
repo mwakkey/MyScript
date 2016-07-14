@@ -137,6 +137,9 @@
     <ClInclude Include="crossProd.h">
       <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
+    <ClInclude Include="derivative.h">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="glsltest.vert">

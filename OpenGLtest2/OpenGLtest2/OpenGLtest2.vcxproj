@@ -169,6 +169,7 @@
     <ClInclude Include="crossProd.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
+    <ClInclude Include="derivative.h" />
     <ClInclude Include="glManager.h" />
     <ClInclude Include="glsl.h" />
     <ClInclude Include="controller.h" />
