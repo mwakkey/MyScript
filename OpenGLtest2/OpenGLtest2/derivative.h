@@ -1,24 +1,27 @@
 #pragma once
 #include <functional>
 
-
-class Derivative
+namespace MathFunc
 {
-public:
-	template <typename T>
-	static T derivative(std::function<T(T x)>& f, T coef, float delta)
-	{
-		return (f(coef + delta) - f(coef)) / delta;
-	}
 
-	template <typename T>
-	static T derivative(std::function<T(T x, T y)>& f, T coef1,T coef2, float delta,int n)
+	class Derivative
 	{
-		if (n == 1) {
-			return (f(coef1 + delta, coef2) - f(coef1, coef2)) / delta;
+	public:
+		template <typename T>
+		static T derivative(std::function<T(T x)>& f, T coef, float delta)
+		{
+			return (f(coef + delta) - f(coef)) / delta;
 		}
-		if (n == 2) {
-			return (f(coef1, coef2+delta) - f(coef1, coef2)) / delta;
+
+		template <typename T>
+		static T derivative(std::function<T(T x, T y)>& f, T coef1, T coef2, float delta, int n)
+		{
+			if (n == 1) {
+				return (f(coef1 + delta, coef2) - f(coef1, coef2)) / delta;
+			}
+			if (n == 2) {
+				return (f(coef1, coef2 + delta) - f(coef1, coef2)) / delta;
+			}
 		}
-	}
-};
+	};
+}
