@@ -11,6 +11,7 @@ private:
 	GLuint shaderProg;
 	GLuint vertexShader, fragmentShader;
 
+
 	//shader file‚ğ“Ç‚İ‚İƒRƒ“ƒpƒCƒ‹‚·‚é
 	void readShaderCompile(GLuint shader, const char *file);
 

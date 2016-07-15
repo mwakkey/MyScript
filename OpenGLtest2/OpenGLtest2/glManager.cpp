@@ -50,7 +50,10 @@ void glManager::init()
 
 	glManager::glsl = new GLSL;
 	glsl->initGlsl("glsltest.vert", "glsltest.frag");
+	
 }
+
+
 
 //OpenGL‚Å•`‰æ‚·‚é‚½‚ß‚Ì‘O€”õ‚ğ‚Ü‚Æ‚ß‚Äˆ—
 void glManager::setGL(int argc, char *argv[])
@@ -67,7 +70,7 @@ void glManager::setGL(int argc, char *argv[])
 }
 
 //•`‰æ‚ÌƒƒCƒ“ˆ—
-void glManager::draw()
+void glManager::glMain()
 {
 	glutMainLoop();
 
