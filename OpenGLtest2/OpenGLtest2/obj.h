@@ -5,17 +5,6 @@
 
 #define DEF_BUF_SIZE 2
 
-//モデルデータを表すクラス
-class Model
-{
-private:
-	std::vector<float> vertices;
-	int numVertices;
-
-public:
-
-};
-
 
 //OBJファイルからモデルデータを読み込むクラス
 class Obj
@@ -55,4 +44,15 @@ public:
 	{
 		return buf.at(index);
 	}
+};
+
+//モデルデータを表すクラス
+class Model
+{
+private:
+	std::vector<float> vertices;
+	int numVertices;
+
+public:
+
 };
