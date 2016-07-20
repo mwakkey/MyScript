@@ -3,23 +3,17 @@
 #include <vector>
 #include <string>
 
-#define DEF_BUF_SIZE 2
-
 
 //OBJファイルからモデルデータを読み込むクラス
 class Obj
 {
 private:
-	TBuffer<float> *vs;
-	TBuffer<int> *fs;
 
 public:
-	Obj();
-	~Obj();
 	Model* loadObj(const std::string fileName);
-	void readVertices(const std::string line);
-	void readIndices(const std::string line);
-	Model* createModel();
+	void readVertices(const std::string line,TBuffer<float> *vs);
+	void readIndices(const std::string line,TBuffer<int> *fs);
+	Model* createModel(TBuffer<float> *vs, TBuffer<int> *fs);
 };
 
 //モデルデータ読み込みのためのバッファクラス
@@ -27,14 +21,8 @@ template <typename T>
 class TBuffer
 {
 private:
-	int bufSize;
 	std::vector<T> buf;
 public:
-	TBuffer()
-	{
-		bufSize = DEF_BUF_SIZE;
-		buf.resize(bufSize);
-	}
 	void add(T value)
 	{
 		buf.push_back(value);
