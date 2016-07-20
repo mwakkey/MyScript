@@ -183,6 +183,7 @@
     <ClInclude Include="reactionDiffusion.h" />
     <ClInclude Include="SimplexNoise.h" />
     <ClInclude Include="sceneBase.h" />
+    <ClInclude Include="stringUtil.h" />
     <ClInclude Include="titleScene.h" />
     <ClInclude Include="wave.h" />
     <ClInclude Include="xorShift.h" />

@@ -8,12 +8,15 @@
 class Obj
 {
 private:
+	//頂点座標を読み込み、モデル生成用のバッファに格納する
+	void readVertices(const std::string line, TBuffer<float> *vs);
+	//インデックスを読み込み、モデル生成用のバッファに格納する
+	void readIndices(const std::string line, TBuffer<int> *fs);
+	
+	Model* createModel(TBuffer<float> *vs, TBuffer<int> *fs);
 
 public:
 	Model* loadObj(const std::string fileName);
-	void readVertices(const std::string line,TBuffer<float> *vs);
-	void readIndices(const std::string line,TBuffer<int> *fs);
-	Model* createModel(TBuffer<float> *vs, TBuffer<int> *fs);
 };
 
 //モデルデータ読み込みのためのバッファクラス

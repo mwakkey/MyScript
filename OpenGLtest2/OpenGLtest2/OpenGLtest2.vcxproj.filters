@@ -37,6 +37,9 @@
     <Filter Include="ソース ファイル\NeuralNet">
       <UniqueIdentifier>{36c5b9b0-c94e-4f51-9c40-4bffb685d00b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Util">
+      <UniqueIdentifier>{82199c18-2148-46f4-9fe4-fd6a829988e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="glVertexArray.h">
       <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="stringUtil.h">
+      <Filter>ソース ファイル\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
