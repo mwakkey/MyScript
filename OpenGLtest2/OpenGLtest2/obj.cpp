@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdio.h>
 
+
 Model* Obj::loadObj(const std::string fileName)
 {
 	std::ifstream ifs(fileName);
@@ -18,10 +19,11 @@ Model* Obj::loadObj(const std::string fileName)
 			readIndices(line, fs);
 		}
 	}
-
-	Model *m = createModel(vs, fs);
-
 	ifs.close();
+
+	Model *m = new Model(vs,fs);
+
+
 	delete(vs);
 	delete(fs);
 
@@ -39,6 +41,7 @@ void Obj::readVertices(const std::string line, TBuffer<float> *vs)
 		for (int i = 0; i < 3; ++i) {
 			vs->add(verts[i]);
 		}
+		
 	}
 
 }
@@ -58,7 +61,19 @@ void Obj::readIndices(const std::string line, TBuffer<int> *fs)
 
 }
 
-Model* Obj::createModel(TBuffer<float> *vs, TBuffer<int> *fs)
+/*
+Model::Model(TBuffer<float> *vs,TBuffer<int> *fs)
 {
-	;
+	int bufSize = fs->bufSize();
+	vertices.resize(bufSize*3);//頂点インデックスの数*頂点座標の次元数
+
+	for (int i = 0; i < bufSize; ++i) {
+		//頂点インデックスを取り出す(インデックス値は1～なのでマイナス1する)
+		int index = fs->get(i) - 1;
+		for (int j = 0; j < 3; ++j) {
+			//インデックスごとに頂点座標(x,y,z)を順に取り出す
+			vertices[i * 3 + j] = vs->get(index * 3 + j);
+		}
+	}
 }
+*/

@@ -93,6 +93,9 @@
     <ClCompile Include="glVertexArray.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="model.cpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
@@ -157,6 +160,12 @@
     </ClInclude>
     <ClInclude Include="stringUtil.h">
       <Filter>ソース ファイル\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="tBuffer.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

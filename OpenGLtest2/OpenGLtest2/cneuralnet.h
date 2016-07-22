@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-
+/*
 class ConvolutionalNeuralNet
 {
 private:
@@ -30,3 +30,4 @@ public:
 	ConvolutionalNeuralNet();
 	void input(const float** inputData);
 };
+*/

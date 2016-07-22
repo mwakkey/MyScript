@@ -156,6 +156,7 @@
     <ClCompile Include="glVertexArray.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
+    <ClCompile Include="model.cpp" />
     <ClCompile Include="myGameScene.cpp" />
     <ClCompile Include="cneuralnet.cpp" />
     <ClCompile Include="obj.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="glVertexArray.h" />
+    <ClInclude Include="model.h" />
     <ClInclude Include="myGameScene.h" />
     <ClInclude Include="cneuralnet.h" />
     <ClInclude Include="obj.h" />
@@ -184,6 +186,7 @@
     <ClInclude Include="SimplexNoise.h" />
     <ClInclude Include="sceneBase.h" />
     <ClInclude Include="stringUtil.h" />
+    <ClInclude Include="tBuffer.h" />
     <ClInclude Include="titleScene.h" />
     <ClInclude Include="wave.h" />
     <ClInclude Include="xorShift.h" />

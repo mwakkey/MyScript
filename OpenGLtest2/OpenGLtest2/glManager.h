@@ -12,6 +12,5 @@ namespace glManager
 	void setGL(int argc, char *argv[]);
 	void glMain();
 
-	void triPolygon3D(const float** pos);
 
 }
