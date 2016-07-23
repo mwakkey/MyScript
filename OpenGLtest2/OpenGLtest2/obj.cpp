@@ -21,7 +21,7 @@ Model* Obj::loadObj(const std::string fileName)
 	}
 	ifs.close();
 
-	Model *m = new Model(vs,fs);
+	Model *m = new Model(vs,fs,3);
 
 
 	delete(vs);
