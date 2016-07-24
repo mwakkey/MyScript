@@ -12,7 +12,7 @@ private:
 	//頂点座標を読み込み、モデル生成用のバッファに格納する
 	static void readVertices(const std::string line, TBuffer<float> *vs);
 	//インデックスを読み込み、モデル生成用のバッファに格納する
-	static void readIndices(const std::string line, TBuffer<int> *fs);
+	static void readIndices(const std::string line, TBuffer<int> *fs, int figure);
 	
 public:
 

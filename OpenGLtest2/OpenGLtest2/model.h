@@ -6,6 +6,6 @@ class Model
 {
 public:
 	Model() {}
-	Model(TBuffer<float> *vs, TBuffer<int> *fs,int dim);
+	Model(TBuffer<float> *vs, TBuffer<int> *fs);
 	std::vector<float> vertices;
 };

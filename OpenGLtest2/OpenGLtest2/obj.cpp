@@ -16,12 +16,12 @@ Model* Obj::loadObj(const std::string fileName)
 			readVertices(line, vs);
 		}
 		else if (line[0] == 'f'&&line[1] == ' ') {
-			readIndices(line, fs);
+			readIndices(line, fs, 3);//lŠpŒ`‚È‚ç‘æOˆø”‚ğ4‚É‚·‚é
 		}
 	}
 	ifs.close();
 
-	Model *m = new Model(vs,fs,3);
+	Model *m = new Model(vs,fs);
 
 
 	delete(vs);
@@ -32,7 +32,7 @@ Model* Obj::loadObj(const std::string fileName)
 
 void Obj::readVertices(const std::string line, TBuffer<float> *vs)
 {
-	float verts[3];
+	std::vector<float> verts(3);
 	int count;
 
 	count = sscanf_s(line.c_str(), "%*s%f%f%f", &verts[0], &verts[1], &verts[2]);
@@ -41,20 +41,20 @@ void Obj::readVertices(const std::string line, TBuffer<float> *vs)
 		for (int i = 0; i < 3; ++i) {
 			vs->add(verts[i]);
 		}
-		
+
 	}
 
 }
 
-void Obj::readIndices(const std::string line, TBuffer<int> *fs)
+void Obj::readIndices(const std::string line, TBuffer<int> *fs, int figure)
 {
-	int indices[3];
+	std::vector<int> indices(figure);
 	int count;
 
 	count = sscanf_s(line.c_str(), "%*s%d%d%d", &indices[0], &indices[1], &indices[2]);
 
-	if (count == 3) {
-		for (int i = 0; i < 3; ++i) {
+	if (count == figure) {
+		for (int i = 0; i < figure; ++i) {
 			fs->add(indices[i]);
 		}
 	}
