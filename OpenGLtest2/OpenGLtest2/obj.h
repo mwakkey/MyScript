@@ -13,7 +13,6 @@ private:
 	static void readVertices(const std::string line, TBuffer<float> *vs);
 	//インデックスを読み込み、モデル生成用のバッファに格納する
 	static void readIndices(const std::string line, TBuffer<int> *fs, int figure);
-	
 public:
 
 	static Model* loadObj(const std::string fileName);

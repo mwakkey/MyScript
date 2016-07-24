@@ -50,8 +50,12 @@ void Obj::readIndices(const std::string line, TBuffer<int> *fs, int figure)
 {
 	std::vector<int> indices(figure);
 	int count;
-
-	count = sscanf_s(line.c_str(), "%*s%d%d%d", &indices[0], &indices[1], &indices[2]);
+	if (figure == 3) {
+		count = sscanf_s(line.c_str(), "%*s%d%d%d", &indices[0], &indices[1], &indices[2]);
+	}
+	else if (figure == 4) {
+		count = sscanf_s(line.c_str(), "%*s%d%d%d%d", &indices[0], &indices[1], &indices[2], &indices[3]);
+	}
 
 	if (count == figure) {
 		for (int i = 0; i < figure; ++i) {
