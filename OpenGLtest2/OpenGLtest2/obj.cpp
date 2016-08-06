@@ -3,8 +3,7 @@
 #include <fstream>
 #include <stdio.h>
 
-
-Model* Obj::loadObj(const std::string fileName)
+Model* Obj::loadObj2D(const std::string fileName)
 {
 	std::ifstream ifs(fileName);
 	std::string line;
@@ -13,7 +12,7 @@ Model* Obj::loadObj(const std::string fileName)
 
 	while (std::getline(ifs, line)) {
 		if (line[0] == 'v'&&line[1] == ' ') {
-			readVertices(line, vs);
+			readVertices2D(line, vs);
 		}
 		else if (line[0] == 'f'&&line[1] == ' ') {
 			readIndices(line, fs, 3);//四角形なら第三引数を4にする
@@ -21,7 +20,32 @@ Model* Obj::loadObj(const std::string fileName)
 	}
 	ifs.close();
 
-	Model *m = new Model(vs,fs);
+	Model *m = new Model(vs, fs, 2);
+
+
+	delete(vs);
+	delete(fs);
+
+	return m;
+}
+Model* Obj::loadObj3D(const std::string fileName)
+{
+	std::ifstream ifs(fileName);
+	std::string line;
+	TBuffer<float> *vs = new TBuffer<float>;
+	TBuffer<int> *fs = new TBuffer<int>;
+
+	while (std::getline(ifs, line)) {
+		if (line[0] == 'v'&&line[1] == ' ') {
+			readVertices3D(line, vs);
+		}
+		else if (line[0] == 'f'&&line[1] == ' ') {
+			readIndices(line, fs, 3);//四角形なら第三引数を4にする
+		}
+	}
+	ifs.close();
+
+	Model *m = new Model(vs, fs, 3);
 
 
 	delete(vs);
@@ -30,7 +54,7 @@ Model* Obj::loadObj(const std::string fileName)
 	return m;
 }
 
-void Obj::readVertices(const std::string line, TBuffer<float> *vs)
+void Obj::readVertices3D(const std::string line, TBuffer<float> *vs)
 {
 	std::vector<float> verts(3);
 	int count;
@@ -45,6 +69,22 @@ void Obj::readVertices(const std::string line, TBuffer<float> *vs)
 	}
 
 }
+void Obj::readVertices2D(const std::string line, TBuffer<float> *vs)
+{
+	std::vector<float> verts(2);
+	int count;
+
+	count = sscanf_s(line.c_str(), "%*s%f%f", &verts[0], &verts[1]);
+
+	if (count == 2) {
+		for (int i = 0; i < 2; ++i) {
+			vs->add(verts[i]);
+		}
+
+	}
+
+}
+
 
 void Obj::readIndices(const std::string line, TBuffer<int> *fs, int figure)
 {
@@ -64,20 +104,3 @@ void Obj::readIndices(const std::string line, TBuffer<int> *fs, int figure)
 	}
 
 }
-
-/*
-Model::Model(TBuffer<float> *vs,TBuffer<int> *fs)
-{
-	int bufSize = fs->bufSize();
-	vertices.resize(bufSize*3);//頂点インデックスの数*頂点座標の次元数
-
-	for (int i = 0; i < bufSize; ++i) {
-		//頂点インデックスを取り出す(インデックス値は1～なのでマイナス1する)
-		int index = fs->get(i) - 1;
-		for (int j = 0; j < 3; ++j) {
-			//インデックスごとに頂点座標(x,y,z)を順に取り出す
-			vertices[i * 3 + j] = vs->get(index * 3 + j);
-		}
-	}
-}
-*/

@@ -6,7 +6,7 @@ void GLVertexArray::glBuffer()
 {
 	glCreateBuffers(1, &positionBuffer);
 
-	Model *model = Obj::loadObj("test.obj");
+	Model *model = Obj::loadObj3D("test.obj");
 	glNamedBufferData(positionBuffer, sizeof(float)*model->vertices.size(), &(model->vertices[0]), GL_STATIC_DRAW);
 	delete(model);
 
