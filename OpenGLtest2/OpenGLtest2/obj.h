@@ -10,14 +10,17 @@ class Obj
 {
 private:
 	//頂点座標を読み込み、モデル生成用のバッファに格納する
-	static void readVertices2D(const std::string line, TBuffer<float> *vs);
-	static void readVertices3D(const std::string line, TBuffer<float> *vs);
+	static void readVertices(const std::string line, TBuffer<float> *vs);
 	//インデックスを読み込み、モデル生成用のバッファに格納する
-	static void readIndices(const std::string line, TBuffer<int> *fs,int figure);
+	static void readIndices(const std::string line, TBuffer<int> *fs);
+	//法線ベクトルを読み込む
+	static void readNormals(const std::string line, TBuffer<float> *vns);
+	//uv座標を読み込む
+	static void readUVs(const std::string line, TBuffer<int> *uvs);
+
 
 public:
 
-	static Model* loadObj2D(const std::string fileName);
-	static Model* loadObj3D(const std::string fileName);
+	static void loadObj(const std::string fileName, Model* m);
 
 };

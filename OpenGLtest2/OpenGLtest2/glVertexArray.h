@@ -8,12 +8,10 @@
 class GLVertexArray
 {
 private:
-	GLuint positionBuffer;
-	GLuint vertexArray;
-	const GLuint positionLocation = 0;
-	const GLuint positionBindIndex = 0;
-
-	void glBuffer();
+	std::vector<GLuint> vBuffer;
+	
+	void glVertexBuffer(GLenum usage,const Model& m);
+	void glIndexBuffer();
 public:
 	void glDraw();
 
