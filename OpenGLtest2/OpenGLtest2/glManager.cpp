@@ -4,7 +4,6 @@
 #include <GL/freeglut.h>
 
 #include "glManager.h"
-#include "crossProd.h"
 
 #define WIDTH 640
 #define HEIGHT 480
@@ -51,6 +50,7 @@ void glManager::init()
 	glManager::glsl = new GLSL;
 	glsl->initGlsl("glsltest.vert", "glsltest.frag");
 	
+	glManager::glVBO = new GLVertexArray;
 }
 
 
