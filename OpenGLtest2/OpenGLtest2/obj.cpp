@@ -3,14 +3,14 @@
 #include <fstream>
 #include <stdio.h>
 
-void Obj::loadObj(const std::string fileName,Model* m)
+void ObjLoader::loadObj(const std::string fileName,Model* m)
 {
 	std::ifstream ifs(fileName);
 	std::string line;
-	TBuffer<float> *vs = new TBuffer<float>;
-	TBuffer<int> *fs = new TBuffer<int>;
-	TBuffer<float> *vns = new TBuffer<float>;
-	TBuffer<int> *uvs = new TBuffer<int>;
+	TBuffer<var3D<float, float, float>> *vs = new TBuffer<var3D<float, float, float>>;
+	TBuffer<var3D<int, int, int>> *fs = new TBuffer<var3D<int, int, int>>;
+	TBuffer<var3D<float, float, float>> *vns = new TBuffer<var3D<float, float, float>>;
+	TBuffer<var2D<float, float>> *uvs = new TBuffer<var2D<float, float>>;
 
 	while (std::getline(ifs, line)) {
 		if (line[0] == 'v'&&line[1] == ' ') {
@@ -33,30 +33,29 @@ void Obj::loadObj(const std::string fileName,Model* m)
 
 	delete(vs);
 	delete(fs);
+	delete(vns);
+	delete(uvs);
 }
 
-void Obj::readVertices(const std::string line, TBuffer<float> *vs)
+void ObjLoader::readVertices(const std::string line, TBuffer<var3D<float, float, float>> *vs)
 {
-	std::vector<float> verts(3);
+	var3D<float, float, float> verts;
 	int count;
 
-	count = sscanf_s(line.c_str(), "%*s%f%f%f", &verts[0], &verts[1], &verts[2]);
+	count = sscanf_s(line.c_str(), "%*s%f%f%f", &(verts.x), &(verts.y), &(verts.z));
 
 	if (count == 3) {
-		for (int i = 0; i < 3; ++i) {
-			vs->add(verts[i]);
-		}
-
+		vs->add(verts);
 	}
 
 }
 
 
-void Obj::readIndices(const std::string line, TBuffer<int> *fs)
+void ObjLoader::readIndices(const std::string line, TBuffer<var3D<int, int, int>> *fs)
 {
-	int v1, v2, v3;
-	int t1, t2, t3;
-	int n1, n2, n3;
+	var3D<int, int, int> vtn1;
+	var3D<int, int, int> vtn2;
+	var3D<int, int, int> vtn3;
 	int count;
 
 	//f 1/3/2 2/2/1 3/3/1Å@ÇÃÇÊÇ§Ç…ãLèqÇ≥ÇÍÇƒÇ¢ÇÈ
@@ -64,43 +63,34 @@ void Obj::readIndices(const std::string line, TBuffer<int> *fs)
 				   "%*s %d%*c%d%*c%d "
 				   "%d%*c%d%*c%d "
 				   "%d%*c%d%*c%d",
-				   &v1, &t1, &n1, &v2, &t2, &n2, &v3, &t3, &n3);
+				   &(vtn1.x), &(vtn1.y), &(vtn1.z), &(vtn2.x), &(vtn2.y), &(vtn2.z), &(vtn3.x), &(vtn3.y), &(vtn3.z));
 
 	if (count == 9) {
-		fs->add(v1);
-		fs->add(t1);
-		fs->add(n1);
-		fs->add(v2);
-		fs->add(t2);
-		fs->add(n2);
-		fs->add(v3);
-		fs->add(t3);
-		fs->add(n3);
+		fs->add(vtn1);
+		fs->add(vtn2);
+		fs->add(vtn3);
 	}
 
 }
 
-void Obj::readNormals(const std::string line, TBuffer<float> *vns)
+void ObjLoader::readNormals(const std::string line, TBuffer<var3D<float, float, float>> *vns)
 {
-	float x, y, z;
+	var3D<float, float, float> norms;
 	int count;
-	count = sscanf_s(line.c_str(), "%*s%f%f%f", &x, &y, &z);
+	count = sscanf_s(line.c_str(), "%*s%f%f%f", &(norms.x), &(norms.y), &(norms.z));
 
 	if (count == 3) {
-		vns->add(x);
-		vns->add(y);
-		vns->add(z);
+		vns->add(norms);
 	}
 }
 
-void Obj::readUVs(const std::string line, TBuffer<int> *uvs)
+void ObjLoader::readUVs(const std::string line, TBuffer<var2D<float, float>> *uvs)
 {
-	float u, v;
+	var2D<float, float> texts;
 	int count;
-	count = sscanf_s(line.c_str(), "%*s%f%f", &u, &v);
+	count = sscanf_s(line.c_str(), "%*s%f%f", &(texts.x), &(texts.y));
 
 	if (count == 2) {
-		uvs->add(u);
-		uvs->add(v);
+		uvs->add(texts);
 	}
 }

@@ -167,6 +167,9 @@
     <ClInclude Include="model.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="multiVar.h">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="glsltest.vert">

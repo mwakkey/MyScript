@@ -188,6 +188,7 @@
     <ClInclude Include="stringUtil.h" />
     <ClInclude Include="tBuffer.h" />
     <ClInclude Include="titleScene.h" />
+    <ClInclude Include="multiVar.h" />
     <ClInclude Include="wave.h" />
     <ClInclude Include="xorShift.h" />
   </ItemGroup>

@@ -1,5 +1,7 @@
 #pragma once
 #include "tBuffer.h"
+#include "multiVar.h"
+
 
 //モデルデータを表すクラス
 class Model
@@ -7,19 +9,19 @@ class Model
 private:
 	int dimension;
 	std::vector<float> position;
-	std::vector<float> normal;
-	std::vector<int> index;
-	std::vector<int> uvs;
 
 public:
+	std::vector<var3D<float, float, float>> vertices;
+	std::vector<var3D<float, float, float>> normals;
+	std::vector<var2D<float, float>> textures;
+	std::vector<var3D<int, int, int>> indices;
+
 	Model() {}
 	//Objデータからモデルデータを取得
-	Model(TBuffer<float> *vs, TBuffer<int> *fs, TBuffer<float> *vns, TBuffer<int> *uvs);
+	Model(TBuffer<var3D<float, float, float>> *vs, TBuffer<var3D<int, int, int>> *fs, TBuffer<var3D<float, float, float>> *vns, TBuffer<var2D<float, float>> *uvs);
 
 	//モデルデータの中心座標を初期化する
 	void initPos(const std::vector<float>& pos);
 	//モデルデータを移動させる
 	void moveModel(const std::vector<float>& deltaPos);
-
-	std::vector<float> vertices;
 };
