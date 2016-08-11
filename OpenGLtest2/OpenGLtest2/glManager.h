@@ -9,10 +9,11 @@ namespace glManager
 	GLVertexArray* glVBO;
 
 	void display();
-	void idle();
+	void reshape(int w,int h);
+	void timer(int value);
 	void init();
-	void setGL(int argc, char *argv[]);
-	void glMain();
+	void glutCallFunc();
+	void glMain(int argc, char *argv[]);
 
 
 }
