@@ -12,6 +12,7 @@
 
 namespace glManager {
 	GLSL* glsl;
+	float heightmap[100][300];
 }
 
 //具体的な描画処理
@@ -19,35 +20,43 @@ void glManager::display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//Zバッファのクリア
 	glLoadIdentity();
-	gluLookAt(-50, 50, 0, 0, 0, 0, 0, 1, 0);//(3,4,5)から(0,0,0)を
+	gluLookAt(30, 40, 50, 0, 0, 0, 0, 1, 0);//(3,4,5)から(0,0,0)を
 										 //見ていて、(0,1,0)が
 										 //上向きとなる視点
 
-	
-	float heightmap[100][100];
 	for (int i = 0; i < 100; ++i) {
-		for (int j=0; j < 100; ++j) {
-			heightmap[i][j] = SimplexNoise::SimplexNoiseInRange2D(i*1.005f, j*1.005f, -10.0f, 10.0f);
+		for (int j = 0; j < 100; ++j) {
+			heightmap[i][3 * j] = j;
+			heightmap[i][3 * j + 1] = i;
+			heightmap[i][3 * j + 2] = i + j;
 		}
 	}
 
-	glBegin(GL_QUADS);
-	/*
-	for (int i = 0; i < 99; ++i) {
-		for (int j = 0; j < 99; ++j) {
-			glVertex3f(i, j, heightmap[i][j]);
-			glVertex3f(i+1, j, heightmap[i+1][j]);
-			glVertex3f(i+1, j+1, heightmap[i+1][j+1]);
-			glVertex3f(i, j+1, heightmap[i][j+1]);
-		}
-	}
-	*/
-	glVertex3f(1, 1, 1);
-	glVertex3f(4, 1, 3);
-	glVertex3f(4, 4, -3);
-	glVertex3f(1, 4, 5);
+	glBegin(GL_LINES);
+
+	glColor3d(0, 1, 0);//x
+	glVertex2d(-100, 0);
+	glVertex2d(100, 0);
+
+	glColor3d(1, 0, 0);//y
+	glVertex2d(0, 0);
+	glVertex2d(0, 100);
+
+	glColor3d(0, 0, 1);//z
+	glVertex3d(0, 0, -100);
+	glVertex3d(0, 0, 100);
 	glEnd();
 
+	glBegin(GL_QUADS);
+	for (float v = 0; v < 1; v += 0.1f) {
+		for (float u = 0; u < 1; u += 0.1f) {
+			glEvalCoord2f(u, v);
+			glEvalCoord2f(u + 0.1, v);
+			glEvalCoord2f(u + 0.1, v + 0.1);
+			glEvalCoord2f(u, v + 0.1);
+		}
+	}
+	glEnd();
 
 //myDisp();
 	//glVBO->glVBODraw(GL_STREAM_DRAW);//mlistに登録したモデルを描画する
@@ -74,9 +83,12 @@ void glManager::timer(int t)
 void glManager::init()
 {
 	glewInit();
-	glClearColor(0.0, 0.0, 0.0, 0.1);
+	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glEnable(GL_DEPTH);
-	
+
+	glMap2f(GL_MAP2_VERTEX_3, 0.0, 1.0, 3, 100, 0.0, 1.0, 300, 100, &(heightmap[0][0]));
+	glEnable(GL_MAP2_VERTEX_3);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	glManager::glsl = new GLSL;
 	glsl->initGlsl("glsltest.vert", "glsltest.frag");
