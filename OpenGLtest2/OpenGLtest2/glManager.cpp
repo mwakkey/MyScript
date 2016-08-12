@@ -11,8 +11,13 @@
 
 
 namespace glManager {
-	GLSL* glsl;
-	float heightmap[100][300];
+	GLSL* glsl;	
+}
+
+void glManager::drawFace() {
+	glColor3f(1.0, 0.0, 1.0);
+	glEvalMesh2(GL_LINE, 0, 100, 0, 100);
+	glColor3f(1.0, 1.0, 1.0);
 }
 
 //具体的な描画処理
@@ -20,17 +25,10 @@ void glManager::display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//Zバッファのクリア
 	glLoadIdentity();
-	gluLookAt(30, 40, 50, 0, 0, 0, 0, 1, 0);//(3,4,5)から(0,0,0)を
+	gluLookAt(90, 120, 150, 0, 0, 0, 0, 1, 0);//(3,4,5)から(0,0,0)を
 										 //見ていて、(0,1,0)が
 										 //上向きとなる視点
-
-	for (int i = 0; i < 100; ++i) {
-		for (int j = 0; j < 100; ++j) {
-			heightmap[i][3 * j] = j;
-			heightmap[i][3 * j + 1] = i;
-			heightmap[i][3 * j + 2] = i + j;
-		}
-	}
+	
 
 	glBegin(GL_LINES);
 
@@ -47,16 +45,7 @@ void glManager::display(void)
 	glVertex3d(0, 0, 100);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	for (float v = 0; v < 1; v += 0.1f) {
-		for (float u = 0; u < 1; u += 0.1f) {
-			glEvalCoord2f(u, v);
-			glEvalCoord2f(u + 0.1, v);
-			glEvalCoord2f(u + 0.1, v + 0.1);
-			glEvalCoord2f(u, v + 0.1);
-		}
-	}
-	glEnd();
+	drawFace();
 
 //myDisp();
 	//glVBO->glVBODraw(GL_STREAM_DRAW);//mlistに登録したモデルを描画する
@@ -80,15 +69,15 @@ void glManager::timer(int t)
 	glutTimerFunc(t, glManager::timer, 17);
 }
 
-void glManager::init()
+void glManager::init(float* hmap)
 {
 	glewInit();
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glEnable(GL_DEPTH);
 
-	glMap2f(GL_MAP2_VERTEX_3, 0.0, 1.0, 3, 100, 0.0, 1.0, 300, 100, &(heightmap[0][0]));
+	glMap2f(GL_MAP2_VERTEX_3, 0.0, 1.0, 3, 100, 0.0, 1.0, 300, 100, hmap);
+	glMapGrid2f(10, 0, 1, 10, 0, 1);
 	glEnable(GL_MAP2_VERTEX_3);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	glManager::glsl = new GLSL;
 	glsl->initGlsl("glsltest.vert", "glsltest.frag");
@@ -114,7 +103,15 @@ void glManager::glMain(int argc, char *argv[]){
 	//ダブルバッファで画面のちらつきを解消する
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutCreateWindow("OpenGLTest");
-	init();
+	float heightmap[100][300];
+	for (int i = 0; i < 100; ++i) {
+		for (int j = 0; j < 100; ++j) {
+			heightmap[i][3 * j] = j;
+			heightmap[i][3 * j + 1] = i;
+			heightmap[i][3 * j + 2] = i + j;
+		}
+	}
+	init(&(heightmap[0][0]));
 
 	glutCallFunc();
 
