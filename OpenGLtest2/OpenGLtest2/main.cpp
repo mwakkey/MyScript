@@ -118,12 +118,9 @@ int main(int argc, char* argv[])
 }
 */
 
-#include <iostream>
-#include <vector>
-#include <numeric>
-#include "SimplexNoise.h"
-#include "csv.h"
-int main()
+#include "glManager.h"
+#include "controller.h"
+int main(int argc, char *argv[])
 {
 	/*
 	std::cout << std::endl;
@@ -151,6 +148,8 @@ int main()
 	std::vector<std::vector<float>> data = { {0.4f,0.8f,0.3f},{0.04f,0.001f,0.8f},{0.6f,0.5f,0.7f} };
 	csv.csvWrite(data);
 	*/
+
+	glManager::glMain(argc, argv);
 
 	return 0;
 }

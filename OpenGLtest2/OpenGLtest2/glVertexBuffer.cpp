@@ -1,10 +1,10 @@
 
-#include "glVertexArray.h"
+#include "glVertexBuffer.h"
 
 
 #define BUFFER_OFFSET(bytes) ((GLubyte *)NULL+(bytes))
 
-void GLVertexArray::glBufferDraw(GLenum usage, const Model& m)
+void GLVertexBuffer::glBufferDraw(GLenum usage, const Model& m)
 {
 
 	//バッファオブジェクトの作成
@@ -47,4 +47,10 @@ void GLVertexArray::glBufferDraw(GLenum usage, const Model& m)
 	glDisableClientState(GL_NORMAL_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
+}
+
+void GLVertexBuffer::glVBODraw(GLenum usage) {
+	for (Model m : mlist) {
+		glBufferDraw(usage, m);
+	}
 }

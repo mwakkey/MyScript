@@ -90,10 +90,10 @@
     <ClCompile Include="reactionDiffusion.cpp">
       <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
-    <ClCompile Include="glVertexArray.cpp">
+    <ClCompile Include="model.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="model.cpp">
+    <ClCompile Include="glVertexBuffer.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,9 +155,6 @@
     <ClInclude Include="reactionDiffusion.h">
       <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
-    <ClInclude Include="glVertexArray.h">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="stringUtil.h">
       <Filter>ソース ファイル\Util</Filter>
     </ClInclude>
@@ -169,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="multiVar.h">
       <Filter>ソース ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="glVertexBuffer.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

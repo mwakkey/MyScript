@@ -1,12 +1,14 @@
 #pragma once
-#include "glsl.h"
-#include "glVertexArray.h"
+#include "glVertexBuffer.h"
+#include <functional>
 
 namespace glManager
 {
 
-	GLSL* glsl;
-	GLVertexArray* glVBO;
+
+	//GLVertexBuffer* glVBO;
+
+	//std::function<void()> myDisp;//‘I‘ğ‚µ‚½ƒ‚ƒfƒ‹‚ğ•\¦‚·‚éŠÖ”
 
 	void display();
 	void reshape(int w,int h);

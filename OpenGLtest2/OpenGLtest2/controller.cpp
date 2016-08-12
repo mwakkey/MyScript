@@ -2,6 +2,11 @@
 #include <gl/glut.h>
 #include <numeric>
 
+namespace Controller {
+	//ゲーム内でのキー番号と対応するキーのマップ
+	unsigned int keyFlag;
+}
+
 void Controller::joystick(unsigned int ButtonMask, int x, int y, int z)
 {
 	unsigned int tmp = 0;
