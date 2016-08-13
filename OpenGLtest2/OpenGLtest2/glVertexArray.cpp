@@ -4,24 +4,24 @@
 #define BUFFER_OFFSET(bytes) ((GLubyte *)NULL+(bytes))
 
 
-GLVertexArray::GLVertexArray(int vaoSize, int vboSize, int iboSize) {
-	vaoId.resize(vaoSize);
-	vboId.resize(vboSize);
-	iboId.resize(iboSize);
+GLVertexArray::GLVertexArray(int mCount) {
+	vaoId.resize(mCount);
+	vboId.resize(mCount);
+	iboId.resize(mCount);
 }
 
-void GLVertexArray::draw(int arraySize) {
+void GLVertexArray::draw(int indexCount) {
 	glBindVertexArray(vaoId[0]);
-	glDrawArrays(GL_QUADS, 0, arraySize);//頂点配列(ベクトル)のサイズ=頂点座標が何個あるか
+	glDrawArrays(GL_QUADS, 0, indexCount);//描画されるべきインデックスの数(頂点座標が何個あるか)
 	glBindVertexArray(0);
 }
 
-void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model>& mlist) {
-	glGenVertexArrays(2, &(vaoId[0]));//VAO2つ作成
-	glGenBuffers(2, &(vboId[0]));//VBO2つ作成
-	glGenBuffers(2, &(iboId[0]));//IBO2つ作成
+void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model>& mlist,int mCount) {
+	glGenVertexArrays(mCount, &(vaoId[0]));//VAO2つ作成
+	glGenBuffers(mCount, &(vboId[0]));//VBO2つ作成
+	glGenBuffers(mCount, &(iboId[0]));//IBO2つ作成
 
-	for (int i = 0; i < 2; ++i) {
+	for (int i = 0; i < mCount; ++i) {
 		glBindVertexArray(vaoId[i]);//VAO切り替え
 
 		//------VBOi個目----------//
@@ -59,6 +59,7 @@ void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model>& mlist) {
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_NORMAL_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
 	glBindVertexArray(0);
 
 }

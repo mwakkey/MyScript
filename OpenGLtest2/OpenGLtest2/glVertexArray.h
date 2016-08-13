@@ -16,12 +16,13 @@ private:
 	std::vector<GLuint> iboId;
 
 public:
-	GLVertexArray(int vaoSize, int vboSize, int iboSize);
+	//mSize:モデルの数
+	GLVertexArray(int mCount);
 
 	//usage -> GL_STATIC_DRAW |GL_DYNAMIC_DRAW |GL_STREAM_DRAW
 	//VBOを作成、VAOでカプセル化する
-	void buildVBO(GLenum usage, const std::vector<Model>& mlist);
+	void buildVBO(GLenum usage, const std::vector<Model>& mlist, int mCount);
 
-	//描画
-	void draw(int arraySize);
+	//描画(indexCount:頂点座標が何個あるかを表す)
+	void draw(int indexCount);
 };

@@ -31,23 +31,23 @@ void Controller::JoyPad::inputJoyStick(int Hz)
 {
 	glutJoystickFunc(Controller::joystick, Hz);//Hz[ms]に一回ジョイスティック入力を受け付ける
 	keyDown = keyFlag & (~myKeyFlag);
-	keyUp = (keyFlag) & myKeyFlag;
+	keyUp = keyFlag & myKeyFlag;
 }
 
 
 unsigned int Controller::JoyPad::getKey(unsigned int buttonID)
 {
 
-	return (myKeyFlag & (2 << buttonID));
+	return (myKeyFlag & (1 << buttonID));
 
 }
 
 unsigned int Controller::JoyPad::getKeyDown(unsigned int buttonID)
 {
-	return (keyDown & (2 << buttonID));
+	return (keyDown & (1 << buttonID));
 }
 
 unsigned int Controller::JoyPad::getKeyUp(unsigned int buttonID)
 {
-	return (keyUp & (2 << buttonID));
+	return (keyUp & (1 << buttonID));
 }
