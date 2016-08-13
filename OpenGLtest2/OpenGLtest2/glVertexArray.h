@@ -11,18 +11,18 @@
 class GLVertexArray
 {
 private:
-	std::vector<GLuint> vaoId;
-	std::vector<GLuint> vboId;
-	std::vector<GLuint> iboId;
+	std::vector<GLuint> vaoID;
+	std::vector<GLuint> vboID;
+	std::vector<GLuint> iboID;
 
 public:
 	//mSize:モデルの数
-	GLVertexArray(int mCount);
+	void initGLVertexArray(int mCount);
 
 	//usage -> GL_STATIC_DRAW |GL_DYNAMIC_DRAW |GL_STREAM_DRAW
 	//VBOを作成、VAOでカプセル化する
 	void buildVBO(GLenum usage, const std::vector<Model>& mlist, int mCount);
 
-	//描画(indexCount:頂点座標が何個あるかを表す)
-	void draw(int indexCount);
+	//描画(indexCount:そのモデルに頂点座標が何個あるかを表す)
+	void draw(int modelId,int modelIndexCount);
 };

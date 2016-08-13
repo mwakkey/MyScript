@@ -40,7 +40,6 @@ void glManager::display(void)
 	glVertex3d(0, 0, 100);
 	glEnd();
 
-	drawFace();
 
 //myDisp();
 	//glVBO->glVBODraw(GL_STREAM_DRAW);//mlist‚É“o˜^‚µ‚½ƒ‚ƒfƒ‹‚ð•`‰æ‚·‚é
