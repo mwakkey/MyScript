@@ -93,7 +93,7 @@
     <ClCompile Include="model.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="glVertexBuffer.cpp">
+    <ClCompile Include="glVertexArray.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,7 +167,7 @@
     <ClInclude Include="multiVar.h">
       <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
-    <ClInclude Include="glVertexBuffer.h">
+    <ClInclude Include="glVertexArray.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>

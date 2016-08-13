@@ -14,11 +14,6 @@ namespace glManager {
 	GLSL* glsl;	
 }
 
-void glManager::drawFace() {
-	glColor3f(1.0, 0.0, 1.0);
-	glEvalMesh2(GL_LINE, 0, 100, 0, 100);
-	glColor3f(1.0, 1.0, 1.0);
-}
 
 //具体的な描画処理
 void glManager::display(void)
@@ -57,7 +52,7 @@ void glManager::reshape(int w,int h) {
 	glViewport(0, 0, w, h);//ビューポート(表示領域)を設定
 	glMatrixMode(GL_PROJECTION);//視体積(視野)の設定を有効にする
 	glLoadIdentity;//行列リセット(選択した行列を単位行列にする)
-	gluPerspective(30, double(w) / h, 0.1, 200);
+	gluPerspective(30, double(w) / h, 0.1, 400);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
@@ -69,15 +64,12 @@ void glManager::timer(int t)
 	glutTimerFunc(t, glManager::timer, 17);
 }
 
-void glManager::init(float* hmap)
+void glManager::init()
 {
 	glewInit();
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glEnable(GL_DEPTH);
 
-	glMap2f(GL_MAP2_VERTEX_3, 0.0, 1.0, 3, 100, 0.0, 1.0, 300, 100, hmap);
-	glMapGrid2f(10, 0, 1, 10, 0, 1);
-	glEnable(GL_MAP2_VERTEX_3);
 
 	glManager::glsl = new GLSL;
 	glsl->initGlsl("glsltest.vert", "glsltest.frag");
@@ -103,15 +95,16 @@ void glManager::glMain(int argc, char *argv[]){
 	//ダブルバッファで画面のちらつきを解消する
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutCreateWindow("OpenGLTest");
-	float heightmap[100][300];
+
+	float heightmap[100][100][3];
 	for (int i = 0; i < 100; ++i) {
 		for (int j = 0; j < 100; ++j) {
-			heightmap[i][3 * j] = j;
-			heightmap[i][3 * j + 1] = i;
-			heightmap[i][3 * j + 2] = i + j;
+			heightmap[i][j][0] = j;
+			heightmap[i][j][1] = i;
+			heightmap[i][j][2] = i + j;
 		}
 	}
-	init(&(heightmap[0][0]));
+	init();
 
 	glutCallFunc();
 
