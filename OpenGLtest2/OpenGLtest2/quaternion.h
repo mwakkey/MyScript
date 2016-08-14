@@ -9,13 +9,13 @@ namespace MathFunc {
 
 	class Quarternion{
 	private:
-		//対象座標ベクトルであるクォータニオン(の係数)を定義
-		static mQuat& create(float x, float y, float z, float w);
-		//任意軸回りの任意回転を表すクォータニオン
-		static mQuat& quat(float rotAxis[], float rotAngle);
-		static mQuat& multiply(const mQuat& a, const mQuat& b);
+		//座標ベクトルでクォータニオン(の係数)を定義
+		static void create(float x, float y, float z, float w,mQuat& q);
+		//任意軸回りの任意回転をクォータニオンで表す
+		static void quat(float rotAxis[], float rotAngle, mQuat& q);
+		static void multiply(const mQuat& a, const mQuat& b, mQuat& q);
 	public:
 		//座標ベクトルを回転軸に対して回転させる
-		static mQuat& rotate(float rotVec[], float rotAxis[], float rotAngle);
+		static float* rotate(float rotVec[], float rotAxis[], float rotAngle);
 	};
 }
