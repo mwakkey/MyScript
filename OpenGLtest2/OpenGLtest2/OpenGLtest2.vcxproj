@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="csv.cpp" />
@@ -162,11 +163,14 @@
     <ClCompile Include="obj.cpp" />
     <ClCompile Include="reactionDiffusion.cpp" />
     <ClCompile Include="SimplexNoise.cpp" />
+    <ClCompile Include="quaternion.cpp" />
     <ClCompile Include="titleScene.cpp" />
     <ClCompile Include="wave.cpp" />
     <ClCompile Include="xorShift.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="calculation.h" />
+    <ClInclude Include="camera.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="convolution.h" />
     <ClInclude Include="crossProd.h" />
@@ -178,10 +182,12 @@
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="glVertexArray.h" />
+    <ClInclude Include="innerProd.h" />
     <ClInclude Include="model.h" />
     <ClInclude Include="myGameScene.h" />
     <ClInclude Include="cneuralnet.h" />
     <ClInclude Include="obj.h" />
+    <ClInclude Include="quaternion.h" />
     <ClInclude Include="reactionDiffusion.h" />
     <ClInclude Include="SimplexNoise.h" />
     <ClInclude Include="sceneBase.h" />

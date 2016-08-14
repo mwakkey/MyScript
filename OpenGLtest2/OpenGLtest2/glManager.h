@@ -1,5 +1,5 @@
 #pragma once
-#include "glVertexBuffer.h"
+#include "glVertexArray.h"
 #include <functional>
 
 namespace glManager

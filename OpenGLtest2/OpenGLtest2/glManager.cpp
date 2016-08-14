@@ -23,7 +23,6 @@ void glManager::display(void)
 	gluLookAt(90, 120, 150, 0, 0, 0, 0, 1, 0);//(3,4,5)‚©‚ç(0,0,0)‚ğ
 										 //Œ©‚Ä‚¢‚ÄA(0,1,0)‚ª
 										 //ãŒü‚«‚Æ‚È‚é‹“_
-	
 
 	glBegin(GL_LINES);
 
