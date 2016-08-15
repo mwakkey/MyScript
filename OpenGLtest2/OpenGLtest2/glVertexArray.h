@@ -23,6 +23,6 @@ public:
 	//VBOを作成、VAOでカプセル化する
 	void buildVBO(GLenum usage, const std::vector<Model>& mlist, int mCount);
 
-	//描画(indexCount:そのモデルに頂点座標が何個あるかを表す)
-	void draw(int modelId,int modelIndexCount);
+	//modelIDに対応するモデルを描画(indexCount:そのモデルに頂点座標が何個あるかを表す)
+	void draw(int modelID,int modelIndexCount);
 };

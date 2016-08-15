@@ -25,10 +25,4 @@ public:
 	//Objデータからモデルデータを取得
 	Model(TBuffer<var3D<float, float, float>> *vs, TBuffer<var3D<int, int, int>> *fs, TBuffer<var3D<float, float, float>> *vns, TBuffer<var2D<float, float>> *uvs);
 
-	/*
-	//モデルデータの中心座標を初期化する
-	void initPos(const std::vector<float>& pos);
-	//モデルデータを移動させる
-	void moveModel(const std::vector<float>& deltaPos);
-	*/
 };

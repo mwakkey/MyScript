@@ -12,7 +12,7 @@ void GLVertexArray::initGLVertexArray(int mCount) {
 
 void GLVertexArray::draw(int modelID,int modelIndexCount) {
 	glBindVertexArray(vaoID[modelID]);
-	glDrawArrays(GL_QUADS, 0, modelIndexCount);//描画されるべきインデックスの数(頂点座標が何個あるか)
+	glDrawArrays(GL_QUADS, 0, modelIndexCount);//描画されるべきインデックスの数(頂点座標(x,y,z)が何組あるか)
 	glBindVertexArray(0);
 }
 

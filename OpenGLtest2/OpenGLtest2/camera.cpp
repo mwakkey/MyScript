@@ -27,5 +27,6 @@ void Camera::translate(float mov[3]) {
 }
 
 void Camera::lookAt() {
+	glLoadIdentity();
 	gluLookAt(pos[0], pos[1], pos[2], look[0], look[1], look[2], up[0], up[1], up[2]);
 }
