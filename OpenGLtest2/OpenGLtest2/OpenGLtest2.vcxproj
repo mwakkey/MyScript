@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="calculation.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="character.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="csv.cpp" />
@@ -172,6 +173,7 @@
   <ItemGroup>
     <ClInclude Include="calculation.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="character.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="convolution.h" />
     <ClInclude Include="crossProd.h" />
