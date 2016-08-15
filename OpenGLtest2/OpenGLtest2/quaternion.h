@@ -16,6 +16,6 @@ namespace MathFunc {
 		static void multiply(const mQuat& a, const mQuat& b, mQuat& q);
 	public:
 		//座標ベクトルを回転軸に対して回転させる
-		static float* rotate(float rotVec[], float rotAxis[], float rotAngle);
+		static void rotate(float* rotVec, float rotAxis[], float rotAngle);
 	};
 }

@@ -2,53 +2,19 @@
 
 	
 namespace MathFunc {
-	template<typename T>
-	T* sum(const T* a, const T* b) {
-		T c[];
-		int arraySize = sizeof(b) / sizeof(b[0]);
-		for (int i = 0; i < arraySize; ++i) {
-			c[i] = a[i] + b[i];
-		}
-		return c;
-	}
-	template<typename T>
-	T* sum(const T* a, const T* b,const T*c) {
-		T d[];
-		int arraySize = sizeof(b) / sizeof(b[0]);
-		for (int i = 0; i < arraySize; ++i) {
-			d[i] = a[i] + b[i] + c[i];
-		}
-		return d;
-	}
 
-	template<typename T>
-	T* sub(const T* a, const T* b) {
-		T c[];
-		int arraySize = sizeof(b) / sizeof(b[0]);
-		for (int i = 0; i < arraySize; ++i) {
-			c[i] = a[i] - b[i];
-		}
-		return c;
-	}
+	int* sum(const int a[], const int b[]);
+	float* sum(const float a[], const float b[]);
+	int* sum(const int a[], const int b[], const int c[]);
+	float* sum(const float a[], const float b[], const float c[]);
 
-	template<typename T>
-	T* multiply(const T a, const T* b) {
-		T c[];
-		int arraySize = sizeof(b) / sizeof(b[0]);
-		for (int i = 0; i < arraySize; ++i) {
-			c[i] = a*b[i];
-		}
+	int* sub(const int a[], const int b[]);
+	float* sub(const float a[], const float b[]);
 
-		return c;
-	}
+	int* multiply(const int a, const int b[]);
+	float* multiply(const float a, const float b[]);
+	int* multiply(const int a[], const int b[]);
+	float* multiply(const float a[], const float b[]);
 
-	template<typename T>
-	T* multiply(const T* a, const T* b[]) {
-		T c[];
-		int arraySize = sizeof(b) / sizeof(b[0]);
-		for (int i = 0; i < arraySize; ++i) {
-			c[i] = a[i] * b[i];
-		}
-		return c;
-	}
+
 }

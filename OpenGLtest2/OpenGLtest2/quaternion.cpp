@@ -24,7 +24,7 @@ void Quarternion::quat(float rotAxis[], float rotAngle, mQuat& q) {
 
 void Quarternion::multiply(const mQuat& a, const mQuat& b, mQuat& q) {
 	mQuat c;
-	float* temp = MathFunc::sum(CrossProd::cross3D<float>(a.v, b.v), MathFunc::multiply<float>(b.w, a.v), MathFunc::multiply<float>(a.w, b.v));
+	float* temp = MathFunc::sum(CrossProd::cross3D<float>(a.v, b.v), MathFunc::multiply(b.w, a.v), MathFunc::multiply(a.w, b.v));
 
 	for (int i = 0; i < 3; ++i) {
 		c.v[i] = temp[i];
@@ -35,7 +35,7 @@ void Quarternion::multiply(const mQuat& a, const mQuat& b, mQuat& q) {
 
 }
 
-float* Quarternion::rotate(float rotVec[], float rotAxis[], float rotAngle) {
+void Quarternion::rotate(float* rotVec, float rotAxis[], float rotAngle) {
 	mQuat P, R, Q, S0, S;
 	create(rotVec[0], rotVec[1], rotVec[2], 0, P);
 	quat(rotAxis, rotAngle, R);
@@ -43,6 +43,6 @@ float* Quarternion::rotate(float rotVec[], float rotAxis[], float rotAngle) {
 	multiply(P, Q, S0);
 	multiply(R, S0, S);
 
-	return S.v;
+	rotVec = S.v;
 }
 
