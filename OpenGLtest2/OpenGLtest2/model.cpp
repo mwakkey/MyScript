@@ -24,22 +24,10 @@ Model::Model(TBuffer<var3D<float, float, float>> *vs, TBuffer<var3D<int, int, in
 	}
 }
 
-/*
-void Model::initPos(const std::vector<float>& pos) {
-	if (pos.size() == 3) {
-		position = pos;
+void Model::posInit(float pX, float pY, float pZ) {
+	for (auto mv : myVertex) {
+		mv.vertices.x += pX;
+		mv.vertices.y += pY;
+		mv.vertices.z += pZ;
 	}
 }
-
-void Model::moveModel(const std::vector<float>& deltaPos) {
-	if (deltaPos.size()==3) {
-		for (int j = 0; j < 3; ++j) {
-			position[j] += deltaPos[j];
-			for (int i = 0; (i*3 + j) < vertices.size(); ++i) {
-				vertices[(i*3 + j)] += position[j];
-			}
-		}
-
-	}
-}
-*/

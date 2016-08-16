@@ -16,7 +16,7 @@ void GLVertexArray::draw(int modelID,int modelIndexCount) {
 	glBindVertexArray(0);
 }
 
-void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model>& mlist,int mCount) {
+void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model*>& mlist,int mCount) {
 	glGenVertexArrays(mCount, &(vaoID[0]));//VAO2つ作成
 	glGenBuffers(mCount, &(vboID[0]));//VBO2つ作成
 	glGenBuffers(mCount, &(iboID[0]));//IBO2つ作成
@@ -30,12 +30,12 @@ void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model>& mlist,int m
 												  //バッファのバインド
 		glBindBuffer(GL_ARRAY_BUFFER, vboID[i]);
 		//頂点情報のアップロード
-		glBufferData(GL_ARRAY_BUFFER, sizeof(mlist[i].myVertex), &(mlist[i].myVertex[0]), usage);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(mlist[i]->myVertex), &(mlist[i]->myVertex[0]), usage);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		//インデックスバッファも同様に
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iboID[i]);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(mlist[i].indices), &(mlist[i].indices[0]), usage);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(mlist[i]->indices), &(mlist[i]->indices[0]), usage);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 

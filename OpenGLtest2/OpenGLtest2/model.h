@@ -14,8 +14,6 @@ struct MyVertex
 class Model
 {
 private:
-	int dimension;
-	std::vector<float> position;
 
 public:
 	std::vector<MyVertex> myVertex;
@@ -24,5 +22,6 @@ public:
 	Model() {}
 	//Objデータからモデルデータを取得
 	Model(TBuffer<var3D<float, float, float>> *vs, TBuffer<var3D<int, int, int>> *fs, TBuffer<var3D<float, float, float>> *vns, TBuffer<var2D<float, float>> *uvs);
-
+	//モデルのワールド座標系における初期位置を設定
+	void posInit(float pX,float pY,float pZ);
 };

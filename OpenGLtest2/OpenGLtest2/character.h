@@ -5,7 +5,6 @@
 
 class Character {
 private:
-	float pos[3];
 	Model* model;
 	int modelID;
 
@@ -13,6 +12,8 @@ private:
 public:
 	Character(float pX, float pY, float pZ , std::string modelName);
 	~Character();
+
+	void registerModel(std::vector<Model*>& mlist);
 
 	void rotate(float angle, float x, float y, float z);
 	void translate(float x, float y, float z);

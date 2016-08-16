@@ -4,15 +4,19 @@
 
 
 Character::Character(float pX, float pY, float pZ, std::string modelName) {
-	pos[0] = pX;
-	pos[1] = pY;
-	pos[2] = pZ;
-
 	ObjLoader::loadObj(modelName, model);
+	//モデルデータを読み込み、位置を初期化する
+	model->posInit(pX, pY, pZ);
 }
 Character::~Character() {
 	delete(model);
 }
+
+void Character::registerModel(std::vector<Model*>& mlist) {
+	mlist.push_back(model);
+	modelID = mlist.size() - 1;
+}
+
 
 void Character::rotate(float angle,float x,float y,float z) {
 	glRotatef(angle, x, y, z);

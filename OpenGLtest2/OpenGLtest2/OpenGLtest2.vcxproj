@@ -154,6 +154,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="csv.cpp" />
     <ClCompile Include="demoScene.cpp" />
+    <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="glManager.cpp" />
     <ClCompile Include="glsl.cpp" />
     <ClCompile Include="glVertexArray.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="csv.h" />
     <ClInclude Include="demoScene.h" />
     <ClInclude Include="derivative.h" />
+    <ClInclude Include="gameManager.h" />
     <ClInclude Include="glManager.h" />
     <ClInclude Include="glsl.h" />
     <ClInclude Include="controller.h" />
