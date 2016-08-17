@@ -1,28 +1,22 @@
 #pragma once
-#include "model.h"
-#include <string>
+#include "object.h"
 #include <functional>
 
-class Character {
-private:
-	Model* model;
-	int modelID;
-
+//モデルデータをもつオブジェクトのうち、動くものを管理するクラス
+class Character :public Object {//アクセス指定子を明示する
 protected:
+	//何らかのアクションを子クラス(具体的なキャラクラス)で実装しactionに格納する
 	std::function<void()> action;
-
 public:
-	Character(float pX, float pY, float pZ , std::string modelName);
-	~Character();
+	Character() {}
+	Character(float pX, float pY, float pZ, std::string modelName);//継承元のコンストラクタを呼ぶ
 
-	void registerModel(std::vector<Model*>& mlist);
 
 	void rotate(float angle, float x, float y, float z);
 	void translate(float x, float y, float z);
 
 	//キャラクターがアクションする関数
-	void act(std::function<void(int modelID, int modelIndexCount)>& draw);
-	//何らかのアクションを子クラスで実装しactionに格納、それを下の2関数で挟む
 	void actionStart();
-	void actionFinish(std::function<void(int modelID,int modelIndexCount)>& draw);
+	void actionFinish();
+	
 };

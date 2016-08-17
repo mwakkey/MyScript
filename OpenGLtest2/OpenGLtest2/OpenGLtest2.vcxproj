@@ -149,7 +149,7 @@
   <ItemGroup>
     <ClCompile Include="calculation.cpp" />
     <ClCompile Include="camera.cpp" />
-    <ClCompile Include="character.cpp" />
+    <ClCompile Include="object.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="csv.cpp" />
@@ -161,9 +161,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="model.cpp" />
+    <ClCompile Include="character.cpp" />
     <ClCompile Include="myGameScene.cpp" />
     <ClCompile Include="cneuralnet.cpp" />
-    <ClCompile Include="obj.cpp" />
+    <ClCompile Include="objLoader.cpp" />
+    <ClCompile Include="playable.cpp" />
     <ClCompile Include="reactionDiffusion.cpp" />
     <ClCompile Include="SimplexNoise.cpp" />
     <ClCompile Include="quaternion.cpp" />
@@ -174,7 +176,7 @@
   <ItemGroup>
     <ClInclude Include="calculation.h" />
     <ClInclude Include="camera.h" />
-    <ClInclude Include="character.h" />
+    <ClInclude Include="object.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="convolution.h" />
     <ClInclude Include="crossProd.h" />
@@ -189,9 +191,11 @@
     <ClInclude Include="glVertexArray.h" />
     <ClInclude Include="innerProd.h" />
     <ClInclude Include="model.h" />
+    <ClInclude Include="character.h" />
     <ClInclude Include="myGameScene.h" />
     <ClInclude Include="cneuralnet.h" />
-    <ClInclude Include="obj.h" />
+    <ClInclude Include="objLoader.h" />
+    <ClInclude Include="playable.h" />
     <ClInclude Include="quaternion.h" />
     <ClInclude Include="reactionDiffusion.h" />
     <ClInclude Include="SimplexNoise.h" />

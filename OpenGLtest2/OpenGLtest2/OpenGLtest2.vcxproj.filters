@@ -51,9 +51,6 @@
     <ClCompile Include="glsl.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="obj.cpp">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="controller.cpp">
       <Filter>ソース ファイル\Control</Filter>
     </ClCompile>
@@ -105,10 +102,19 @@
     <ClCompile Include="calculation.cpp">
       <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
+    <ClCompile Include="gameManager.cpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="object.cpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="character.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="gameManager.cpp">
+    <ClCompile Include="objLoader.cpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="playable.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -120,9 +126,6 @@
       <Filter>ソース ファイル\Noise</Filter>
     </ClInclude>
     <ClInclude Include="glsl.h">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="obj.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="demoScene.h">
@@ -197,10 +200,19 @@
     <ClInclude Include="innerProd.h">
       <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
+    <ClInclude Include="gameManager.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="character.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="gameManager.h">
+    <ClInclude Include="objLoader.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="playable.h">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>

@@ -24,7 +24,8 @@ void glManager::display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//Zバッファのクリア
 
-	myLookAt();//インスタンスを指定して実行する
+	
+	//myLookAt();//インスタンスを指定して実行する
 
 	glBegin(GL_LINES);
 	glColor3d(0, 1, 0);//x
@@ -41,7 +42,8 @@ void glManager::display(void)
 	glEnd();
 
 
-	myDisp();//インスタンスを指定して実行する
+	
+	//myDisp();//インスタンスを指定して実行する
 
 	glutSwapBuffers();//ウィンドウに出力
 }

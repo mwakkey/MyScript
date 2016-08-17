@@ -1,5 +1,5 @@
 
-#include "obj.h"
+#include "objLoader.h"
 #include <fstream>
 #include <stdio.h>
 
