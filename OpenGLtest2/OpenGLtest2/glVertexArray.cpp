@@ -17,9 +17,9 @@ void GLVertexArray::draw(int modelID,int modelIndexCount) {
 }
 
 void GLVertexArray::buildVBO(GLenum usage, const std::vector<Model*>& mlist,int mCount) {
-	glGenVertexArrays(mCount, &(vaoID[0]));//VAO2‚Âì¬
-	glGenBuffers(mCount, &(vboID[0]));//VBO2‚Âì¬
-	glGenBuffers(mCount, &(iboID[0]));//IBO2‚Âì¬
+	glGenVertexArrays(mCount, &(vaoID[0]));//VAOì¬
+	glGenBuffers(mCount, &(vboID[0]));//VBOì¬
+	glGenBuffers(mCount, &(iboID[0]));//IBOì¬
 
 	for (int i = 0; i < mCount; ++i) {
 		glBindVertexArray(vaoID[i]);//VAOØ‚è‘Ö‚¦

@@ -27,6 +27,12 @@ void Character::translate(float x, float y, float z) {
 }
 
 
+void Character::act(std::function<void(int modelID, int modelIndexCount)>& draw) {
+	actionStart();
+	action();
+	actionFinish(draw);
+}
+
 void Character::actionStart() {
 	glPushMatrix();//ワールド座標系の変換行列を退避させておく
 }

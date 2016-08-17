@@ -8,6 +8,8 @@ private:
 	Model* model;
 	int modelID;
 
+protected:
+	std::function<void()> action;
 
 public:
 	Character(float pX, float pY, float pZ , std::string modelName);
@@ -18,7 +20,9 @@ public:
 	void rotate(float angle, float x, float y, float z);
 	void translate(float x, float y, float z);
 
-	//何らかのアクションを子クラスで関数(std::function)形式で実装し、それを下の2関数で挟む
+	//キャラクターがアクションする関数
+	void act(std::function<void(int modelID, int modelIndexCount)>& draw);
+	//何らかのアクションを子クラスで実装しactionに格納、それを下の2関数で挟む
 	void actionStart();
 	void actionFinish(std::function<void(int modelID,int modelIndexCount)>& draw);
 };

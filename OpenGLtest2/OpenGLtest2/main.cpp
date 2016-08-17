@@ -119,7 +119,6 @@ int main(int argc, char* argv[])
 */
 
 #include "glManager.h"
-#include "controller.h"
 int main(int argc, char *argv[])
 {
 	/*

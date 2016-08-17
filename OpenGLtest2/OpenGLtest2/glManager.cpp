@@ -3,15 +3,19 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #include "glsl.h"
+#include "camera.h"
+#include "gameManager.h"
 #include "glManager.h"
-#include "SimplexNoise.h"
+#include <functional>
 
 #define WIDTH 640
 #define HEIGHT 480
 
 
 namespace glManager {
-	GLSL* glsl;	
+	GLSL* glsl;
+	auto myDisp = std::mem_fn(&GameManager::draw);
+	auto myLookAt = std::mem_fn(&Camera::lookAt);
 }
 
 
@@ -19,13 +23,10 @@ namespace glManager {
 void glManager::display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//Zバッファのクリア
-	glLoadIdentity();
-	gluLookAt(90, 120, 150, 0, 0, 0, 0, 1, 0);//(3,4,5)から(0,0,0)を
-										 //見ていて、(0,1,0)が
-										 //上向きとなる視点
+
+	myLookAt();//インスタンスを指定して実行する
 
 	glBegin(GL_LINES);
-
 	glColor3d(0, 1, 0);//x
 	glVertex2d(-100, 0);
 	glVertex2d(100, 0);
@@ -40,8 +41,7 @@ void glManager::display(void)
 	glEnd();
 
 
-//myDisp();
-	//glVBO->glVBODraw(GL_STREAM_DRAW);//mlistに登録したモデルを描画する
+	myDisp();//インスタンスを指定して実行する
 
 	glutSwapBuffers();//ウィンドウに出力
 }
@@ -72,8 +72,8 @@ void glManager::init()
 	glManager::glsl = new GLSL;
 	glsl->initGlsl("glsltest.vert", "glsltest.frag");
 	glsl->glslOn();
+
 	
-	//glManager::glVBO = new GLVertexBuffer;
 }
 
 
@@ -94,23 +94,15 @@ void glManager::glMain(int argc, char *argv[]){
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutCreateWindow("OpenGLTest");
 
-	float heightmap[100][100][3];
-	for (int i = 0; i < 100; ++i) {
-		for (int j = 0; j < 100; ++j) {
-			heightmap[i][j][0] = j;
-			heightmap[i][j][1] = i;
-			heightmap[i][j][2] = i + j;
-		}
-	}
 	init();
-
 	glutCallFunc();
+
+
 
 	glutMainLoop();
 
 
 	glsl->glslOff();
 	delete(glsl);
-	//delete(glVBO);
 	return;
 }
