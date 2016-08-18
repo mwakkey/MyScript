@@ -1,20 +1,31 @@
 #include "fbxUtil.h"
 
 
-void fbxsdk_2015_1::probeNode(FbxNode* node) {
+void fbxsdk_2015_1::getAttrib(FbxNode* node, FbxMesh* attrib) {
 	if(node){
 		if (isMesh(node)) {
-			FbxMesh* mesh = node->GetMesh();
-			if (mesh != NULL) {
-				//ˆ—‚ðŒã‚Å’Ç‰Á
-			}
-			mesh->Destroy();
+			attrib = node->GetMesh();
+			return;
 		}
 		for (int i = 0; i < node->GetChildCount(); ++i) {
-			probeNode(node->GetChild(i));
+			getAttrib(node->GetChild(i), attrib);
 		}
 	}
 }
+
+void fbxsdk_2015_1::getAttrib(FbxNode* node, FbxCamera* attrib) {
+	if (node) {
+		if (isCamera(node)) {
+			attrib = node->GetCamera();
+			return;
+		}
+		for (int i = 0; i < node->GetChildCount(); ++i) {
+			getAttrib(node->GetChild(i), attrib);
+		}
+	}
+}
+
+
 
 bool fbxsdk_2015_1::isMesh(FbxNode* node) {
 	if (node) {
