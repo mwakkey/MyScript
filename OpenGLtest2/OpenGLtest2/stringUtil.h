@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <string>
-#include <sstream>      // std::ostringstream
+#include <sstream>      // std::stringstream
 
 
 namespace std
@@ -27,4 +27,14 @@ namespace std
 		return dst;
 	}
 
+
+	//”CˆÓŒ^‚ð•¶Žš—ñ‚É•ÏŠ·‚·‚é
+	template <class T> 
+	string toString(T& data)
+	{
+		stringstream str;
+		str << data;
+
+		return str.str();
+	}
 }
