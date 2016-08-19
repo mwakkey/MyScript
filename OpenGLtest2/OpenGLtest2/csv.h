@@ -13,15 +13,26 @@ public:
 	CSV(const char* csvFile);
 	~CSV();
 	
+
 	template <typename T>
-	void csvWrite(const std::vector<std::vector<T>>& data)
+	void csvWrite(const T** data)
 	{
-		for (auto dataRow : data) {
-			for (auto datum : dataRow) {
+		for (T* dataRow : data) {
+			for (T datum : dataRow) {
 				output << datum << ",";
 			}
 			output << std::endl;
 		}
 
+	}
+
+	template <typename T>
+	void csvWrite(const T* data)
+	{
+		for (T datum : dataRow) {
+			output << datum << ",";
+		}
+
+		output << std::endl;
 	}
 };
