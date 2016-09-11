@@ -180,6 +180,7 @@ void FbxFigure::getTextureNames(FbxMesh* fbxMesh) {
 						}
 					}
 				}
+				
 			}
 		}else {//アタッチメントされたテクスチャがFbxFileTextureの場合
 			//FbxFileTexture:テクスチャを一枚しか使用しない場合
@@ -201,7 +202,6 @@ void FbxFigure::getTextureNames(FbxMesh* fbxMesh) {
 				}
 			}
 		}
-		
 	}
 }
 

@@ -22,6 +22,26 @@ typedef struct UvSet {
 	std::vector<Point2> uvBuffer;
 };
 
+/*
+typedef struct Reflection {
+	ColorRGBA diffuse;
+	ColorRGBA ambient;
+	ColorRGBA emission;
+	ColorRGBA specular;
+};
+
+typedef struct Material {
+	float ambient[3];
+	float diffuse[3];
+	float emissive[3];
+	float bump[3];
+	float transparency;
+	float specular[3];
+	float shininess;
+	float reflectivity;
+};
+*/
+
 typedef struct ColorRGBA {
 	float r, g, b, a;
 };
@@ -41,7 +61,9 @@ private:
 
 	UvSet uvSet;			//UVセット
 
+	//Material myMaterial;
 	ColorRGBA* vertexColor;	//頂点カラー配列
+
 public:
 	FbxFigure() {}
 	~FbxFigure();
@@ -53,4 +75,5 @@ public:
 	void getUV(FbxMesh* fbxMesh);			//テクスチャのUV座標を取得
 	void getTextureNames(FbxMesh* fbxMesh);	//テクスチャの名前を取得
 	void getVertexColor(FbxMesh* fbxMesh);
+
 };
