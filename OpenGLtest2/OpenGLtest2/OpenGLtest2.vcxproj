@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="calculation.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="fbxFigure.cpp" />
     <ClCompile Include="fbxLoader.cpp" />
     <ClCompile Include="fbxUtil.cpp" />
     <ClCompile Include="object.cpp" />
@@ -183,6 +184,7 @@
   <ItemGroup>
     <ClInclude Include="calculation.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="fbxFigure.h" />
     <ClInclude Include="fbxLoader.h" />
     <ClInclude Include="fbxUtil.h" />
     <ClInclude Include="object.h" />

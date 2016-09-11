@@ -129,6 +129,9 @@
     <ClCompile Include="playable.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
+    <ClCompile Include="fbxFigure.cpp">
+      <Filter>ソース ファイル\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
@@ -231,6 +234,9 @@
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="tBuffer.h">
+      <Filter>ソース ファイル\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="fbxFigure.h">
       <Filter>ソース ファイル\Model</Filter>
     </ClInclude>
   </ItemGroup>
