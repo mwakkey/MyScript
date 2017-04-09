@@ -1,4 +1,7 @@
 #pragma once
+
+
+/*
 #include "character.h"
 #include "glVertexArray.h"
 #include <vector>
@@ -23,3 +26,5 @@ public:
 	
 	void draw();
 };
+
+*/

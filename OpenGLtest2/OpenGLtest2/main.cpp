@@ -118,9 +118,11 @@ int main(int argc, char* argv[])
 }
 */
 
-#include "glManager.h"
-int main(int argc, char *argv[])
-{
+//#include "glManager.h"
+
+
+//int main(int argc, char *argv[])
+//{
 	/*
 	std::cout << std::endl;
 	//SimplexNoise::setNoiseSeed();
@@ -148,7 +150,42 @@ int main(int argc, char *argv[])
 	csv.csvWrite(data);
 	*/
 
-	glManager::glMain(argc, argv);
+//	glManager::glMain(argc, argv);
+
+//	return 0;
+//}
+
+#include <iostream>
+#include <string>
+#include <functional>
+#include "Image.h"
+#include "glManager.h"
+
+void drawImage() {
+	GameLib::Image* test = new GameLib::Image("image/image.raw", 4);
+	test->loadImage();
+
+	float position[] = { 100,100,
+		400,100,
+		400,400,
+		100,400 };
+	float uvs[] = { 1.0,0.0,
+		1.0,0.25,
+		0.0,0.25,
+		0.0,0.0 };
+
+	test->draw(position, uvs, 2);
+}
+
+int main(int argc, char *argv[])
+{
+	std::function<void(void)> disp = drawImage;
+	GameLib::GLManager::createGameManager(640, 480, disp);
+	GameLib::GLManager::instance()->glMain(argc, argv);
+
+	while(true){}
+
+	GameLib::GLManager::destroyGameManager();
 
 	return 0;
 }
