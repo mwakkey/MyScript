@@ -9,11 +9,14 @@ namespace GameLib {
 
 		static Freamwork* mInstance;
 
+		static bool pauseFlag;
+
 	public:
 		static void createFreamwork();
 		static void destroyFreamwork();
 		static Freamwork* instance();
 
+		static void pause();
 		static void update();
 	};
 }

@@ -4,6 +4,7 @@
 using namespace GameLib;
 
 Freamwork* Freamwork::mInstance = 0;
+bool Freamwork::pauseFlag = false;
 
 Freamwork::Freamwork() {
 
@@ -28,7 +29,12 @@ Freamwork* Freamwork::instance() {
 }
 
 void Freamwork::update() {
+	//if(!pauseFlag)
 	//getInput();	入力
 	//updateGame();	状態の更新
 	//draw();		更新後の状態を描画
+}
+
+void Freamwork::pause() {
+	pauseFlag = (pauseFlag == true ? false : true);
 }
