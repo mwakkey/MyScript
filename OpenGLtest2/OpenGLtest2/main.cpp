@@ -175,17 +175,17 @@ void drawImage() {
 		0.0,0.0 };
 
 	test->draw(position, uvs, 2);
+
 }
 
 int main(int argc, char *argv[])
 {
-	std::function<void(void)> disp = drawImage;
-	GameLib::GLManager::createGameManager(640, 480, disp);
-	GameLib::GLManager::instance()->glMain(argc, argv);
+	GameLib::GLManager::createGameManager(640, 480, drawImage);
 
-	while(true){}
-
+//	while (true) {
+		GameLib::GLManager::instance()->glMain(argc, argv);
+//	}
 	GameLib::GLManager::destroyGameManager();
-
+	
 	return 0;
 }

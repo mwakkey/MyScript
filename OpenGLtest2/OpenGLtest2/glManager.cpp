@@ -8,9 +8,9 @@ using namespace GameLib;
 GLManager* GLManager::mInstance = 0;
 int GLManager::width = 0;
 int GLManager::height = 0;
-std::function<void(void)> GLManager::display = []() {};
+void(*GameLib::GLManager::display)() = 0;
 
-GLManager::GLManager(const int w, const int h, const std::function<void(void)>& disp){
+GLManager::GLManager(const int w, const int h, void(*disp)()){
 	width = w;
 	height = h;
 	display = disp;
@@ -23,7 +23,7 @@ GLManager* GLManager::instance() {
 	return mInstance;
 }
 
-void GLManager::createGameManager(const int w, const int h, const std::function<void(void)>& disp) {
+void GLManager::createGameManager(const int w, const int h, void(*disp)()) {
 //既にインスタンス化されていれば何もせず処理を終了
 	if (!mInstance) {
 		mInstance = new GLManager(w, h, disp);
@@ -40,6 +40,11 @@ void GLManager::init() {
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glEnable(GL_DEPTH);
 
+	glMatrixMode(GL_PROJECTION);//視体積(視野)を設定するモードに移る
+	glLoadIdentity();//行列リセット(選択した行列を単位行列にする)
+	glOrtho(0, width, 0, height, 10, 0);//平行投影モードで2D描画を行う
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 
 //	glManager::glsl = new GLSL;
 //	glsl->initGlsl("glsltest.vert", "glsltest.frag");
@@ -55,18 +60,20 @@ void GLManager::reshape(int w, int h) {
 	glLoadIdentity();
 }
 
-void GLManager::timer(int t)
+void GLManager::timer(int value)
 {
-	glutPostRedisplay();
+	glutPostRedisplay();//OpenGLに再描画を要請する
 	glutForceJoystickFunc();
-	glutTimerFunc(t, GLManager::timer, 17);//tミリ秒経過すると第三引数の値を引数としたコールバックを行う
+	glutTimerFunc(17, GLManager::timer, 0);//17ミリ秒経過するとコールバックを行う
 }
+
 
 void GLManager::glutCallFunc()
 {
-	glutDisplayFunc(display.target<void(void)>());
-	glutReshapeFunc(reshape);//ウィンドウサイズが変更されたときに呼ばれる関数
-	glutTimerFunc(0, GLManager::timer, 17);
+	glutDisplayFunc(display);
+
+//	glutReshapeFunc(reshape);//ウィンドウサイズが変更されたときに呼ばれる関数
+	glutTimerFunc(17, GLManager::timer, 0);
 }
 
 void GLManager::glMain(int argc, char *argv[]) {
@@ -74,10 +81,10 @@ void GLManager::glMain(int argc, char *argv[]) {
 	glutInitWindowSize(width, height);
 	glutInit(&argc, argv);
 	//ダブルバッファで画面のちらつきを解消する
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);//RGBAではなくRGB?
 	glutCreateWindow("OpenGLTest");
 	init();
-	glutCallFunc();
+	glutCallFunc();//コールバック関数を設定
 
 
 	glutMainLoop();

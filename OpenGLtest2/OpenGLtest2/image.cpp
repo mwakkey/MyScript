@@ -67,5 +67,6 @@ void Image::draw(float position[], float uv[], int uid) {
 
 
 
-	glutPostRedisplay();//OpenGLに再描画を要請する
+	glFlush();//実行されていないOpenGLの命令を全て実行する
+
 }

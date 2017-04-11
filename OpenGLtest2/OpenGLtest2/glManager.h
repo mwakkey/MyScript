@@ -4,7 +4,7 @@
 namespace GameLib {
 	class GLManager {
 	private:
-		GLManager(const int w, const int h, const std::function<void(void)>& disp);
+		GLManager(const int w, const int h, void(*disp)());
 		GLManager(const GLManager&);//コピーコンストラクタはprivateで呼べなくする
 		~GLManager();
 		GLManager &operator=(const GLManager&) {}
@@ -12,7 +12,8 @@ namespace GameLib {
 		static GLManager* mInstance;
 
 		static int width, height;
-		static std::function<void(void)> display;
+		static void (*display)();
+
 		static void init();
 		static void glutCallFunc();
 		static void reshape(int w, int h);
@@ -20,7 +21,7 @@ namespace GameLib {
 
 	public:
 		static GLManager* instance();
-		static void createGameManager(const int w, const int h, const std::function<void(void)>& disp);
+		static void createGameManager(const int w, const int h, void (*disp)());
 		static void destroyGameManager();
 
 		void glMain(int argc, char *argv[]);
