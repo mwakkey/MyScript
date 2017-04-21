@@ -161,7 +161,6 @@
     <ClCompile Include="demoScene.cpp" />
     <ClCompile Include="glManager.cpp" />
     <ClCompile Include="glsl.cpp" />
-    <ClCompile Include="glVertexArray.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="myGameScene.cpp" />
@@ -187,7 +186,6 @@
     <ClInclude Include="glsl.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="gameScene.h" />
-    <ClInclude Include="glVertexArray.h" />
     <ClInclude Include="innerProd.h" />
     <ClInclude Include="myGameScene.h" />
     <ClInclude Include="cneuralnet.h" />

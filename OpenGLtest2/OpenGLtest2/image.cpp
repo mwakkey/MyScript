@@ -63,7 +63,7 @@ void Image::draw(float position[], float uv[], int uid) {
 	glEnableClientState(GL_VERTEX_ARRAY); //頂点配列を有効化
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY); //テクスチャ座標配列を有効化
 
-	glDrawArrays(GL_QUADS, 0, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 
 

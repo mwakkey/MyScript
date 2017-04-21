@@ -180,12 +180,12 @@ void drawImage() {
 
 int main(int argc, char *argv[])
 {
-	GameLib::GLManager::createGameManager(640, 480, drawImage);
+	GL::GLManager::createGameManager(640, 480, drawImage);
 
 //	while (true) {
-		GameLib::GLManager::instance()->glMain(argc, argv);
+		GL::GLManager::instance()->glMain(argc, argv);
 //	}
-	GameLib::GLManager::destroyGameManager();
+	GL::GLManager::destroyGameManager();
 	
 	return 0;
 }

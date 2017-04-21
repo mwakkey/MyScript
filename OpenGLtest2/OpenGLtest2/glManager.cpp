@@ -3,12 +3,12 @@
 #include <GL/freeglut.h>
 #include "glManager.h"
 
-using namespace GameLib;
+using namespace GL;
 
 GLManager* GLManager::mInstance = 0;
 int GLManager::width = 0;
 int GLManager::height = 0;
-void(*GameLib::GLManager::display)() = 0;
+void(*GL::GLManager::display)() = 0;
 
 GLManager::GLManager(const int w, const int h, void(*disp)()){
 	width = w;
@@ -94,6 +94,46 @@ void GLManager::glMain(int argc, char *argv[]) {
 //	delete(glsl);
 	return;
 }
+
+void GL::createVBO(GLuint vrtVBO,const float vertices[], GLuint idxVBO,const float indices[]) {
+	glGenBuffers(1, &vrtVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, vrtVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+
+	glGenBuffers(1, &idxVBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxVBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
+}
+
+void GL::deleteVBO(GLuint vrtVBO, GLuint idxVBO) {
+	glDeleteBuffers(1, &vrtVBO);
+	glDeleteBuffers(1, &idxVBO);
+}
+
+
+void GL::drawVBO(GLuint vrtVBO, GLuint idxVBO, int dim) {
+	glBindBuffer(GL_ARRAY_BUFFER, vrtVBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxVBO);
+
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glVertexPointer(dim, GL_FLOAT, 0, 0);//データのポインタは0(オフセット0)
+
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//データのポインタは0(オフセット0)
+
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+}
+
+void GL::modifyVBO(GLuint vrtVBO, float newVertices[]) {
+	glBindBuffer(GL_ARRAY_BUFFER, vrtVBO);
+	float* tmp = reinterpret_cast<float*>(glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
+	tmp = newVertices;
+
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
 
 /*
 #include "glsl.h"
