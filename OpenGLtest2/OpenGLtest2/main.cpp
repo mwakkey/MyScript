@@ -155,11 +155,9 @@ int main(int argc, char* argv[])
 //	return 0;
 //}
 
-#include <iostream>
-#include <string>
-#include <functional>
 #include "Image.h"
 #include "glManager.h"
+#include "vbo.h"
 
 void drawImage() {
 	GameLib::Image* test = new GameLib::Image("image/image.raw", 4);
@@ -175,6 +173,16 @@ void drawImage() {
 		0.0,0.0 };
 
 	test->draw(position, uvs, 2);
+
+}
+
+void drawImage2() {
+	float vertices[] = { 100,100,
+		400,100,
+		400,400,
+		100,400 };
+	int indices[] = { 0,1,3,1,2,3 };
+	GL::VBO* vbo = new GL::VBO(0, vertices, 1, indices, 2);
 
 }
 

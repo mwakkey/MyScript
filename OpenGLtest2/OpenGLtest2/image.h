@@ -21,7 +21,7 @@ namespace GameLib{
 
 		//positionの範囲にuvで区切った領域のuid番目のテクスチャを貼りつける
 		//座標配列は時計回りに(テクスチャ座標は上下逆)
-		void draw(float position[], float uv[], int uid);
+		void draw(float** position, float** uv, int uid);
 	};
 
 }

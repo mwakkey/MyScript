@@ -169,6 +169,8 @@
     <ClCompile Include="SimplexNoise.cpp" />
     <ClCompile Include="quaternion.cpp" />
     <ClCompile Include="titleScene.cpp" />
+    <ClCompile Include="vbo.cpp" />
+    <ClCompile Include="vertex.cpp" />
     <ClCompile Include="wave.cpp" />
     <ClCompile Include="xorShift.cpp" />
   </ItemGroup>
@@ -195,6 +197,8 @@
     <ClInclude Include="sceneBase.h" />
     <ClInclude Include="titleScene.h" />
     <ClInclude Include="multiVar.h" />
+    <ClInclude Include="vbo.h" />
+    <ClInclude Include="vertex.h" />
     <ClInclude Include="wave.h" />
     <ClInclude Include="xorShift.h" />
   </ItemGroup>

@@ -44,18 +44,17 @@ void Image::loadImage() {
 	textureID=texID;
 }
 
-void Image::draw(float position[], float uv[], int uid) {
+void Image::draw(float** position, float** uv, int uid) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glVertexPointer(2, GL_FLOAT, 0, position); //頂点配列を定義
 
 	float w = 1.0f / imageNum;
 	uv[0] = uv[0] + uid*w;
 	uv[2] = uv[2] + uid*w;
 	uv[4] = uv[4] + uid*w;
 	uv[6] = uv[6] + uid*w;
-	glTexCoordPointer(2, GL_FLOAT, 0, uv); //テクスチャ座標配列を定義
 
+	//事前にテクスチャを登録しておいて、
+	//positionとuvからVBOを用いて描画する
 
 	glBindTexture(GL_TEXTURE_2D, textureID); //描画するテクスチャ(のID)を指定
 

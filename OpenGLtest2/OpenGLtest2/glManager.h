@@ -27,12 +27,6 @@ namespace GL {
 
 		void glMain(int argc, char *argv[]);
 	};
-
-	//テクスチャ関係(TBO)は後日
-	void createVBO(GLuint,const float[], GLuint,const float[]);
-	void deleteVBO(GLuint, GLuint);
-	void drawVBO(GLuint, GLuint, int);
-	void modifyVBO(GLuint, float[]);
 }
 
 
