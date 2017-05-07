@@ -6,8 +6,8 @@
 
 using namespace GL;
 
-VBO::VBO(const float vertices[][2], const float textures[][2], const int indices[], const unsigned int textureID)
-	:texID(textureID), dim(2), stride(sizeof(VERTEX::Vertex2D)), vrtLength(sizeof(vertices) / sizeof(vertices[0])) {
+VBO::VBO(const float vertices[][2], const float textures[][2], const int vertLength, const int indices[], const int indLength, const unsigned int textureID)
+	:texID(textureID), dim(2), stride(sizeof(VERTEX::Vertex2D)), vrtLength(vertLength) {
 
 	VERTEX::Vertex2D* vertex = new VERTEX::Vertex2D[vrtLength];
 	VERTEX::vertexArray2D(vertex, vertices, textures, vrtLength);
@@ -19,14 +19,14 @@ VBO::VBO(const float vertices[][2], const float textures[][2], const int indices
 
 	glGenBuffers(1, &idxID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int)*indLength, indices, GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	delete[] vertex;
 
 }
-VBO::VBO(const float vertices[][3], const float textures[][2], const int indices[], const unsigned int textureID)
-	:texID(textureID), dim(3), stride(sizeof(VERTEX::Vertex3D)), vrtLength(sizeof(vertices) / sizeof(vertices[0])) {
+VBO::VBO(const float vertices[][3], const float textures[][2], const int vertLength, const int indices[],const int indLength, const unsigned int textureID)
+	:texID(textureID), dim(3), stride(sizeof(VERTEX::Vertex3D)), vrtLength(vertLength) {
 
 	VERTEX::Vertex3D* vertex = new VERTEX::Vertex3D[vrtLength];
 	VERTEX::vertexArray3D(vertex, vertices, textures, vrtLength);
@@ -38,7 +38,7 @@ VBO::VBO(const float vertices[][3], const float textures[][2], const int indices
 
 	glGenBuffers(1, &idxID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int)*indLength, indices, GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	delete[] vertex;

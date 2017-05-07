@@ -162,6 +162,8 @@ int main(int argc, char* argv[])
 
 void drawImage() {
 	GL::Image* test=new GL::Image("image/image.raw", 128, 32);
+	unsigned int texid = test->loadImage();
+	delete test;
 
 	float position[4][2] ={
 		{100,100},
@@ -175,12 +177,11 @@ void drawImage() {
 		{0.0,0.0} };
 	int indices[5] = {0,1,2,3,0};
 
-	GL::VBO* vbo=new GL::VBO(position,uvs,indices, test->loadImage());
+	GL::VBO* vbo = new GL::VBO(position, uvs, 4, indices, 5,texid);
 
 
 	vbo->draw();
 
-	delete test;
 	delete vbo;
 
 }

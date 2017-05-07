@@ -13,8 +13,8 @@ namespace GL {
 		int vrtLength;//頂点データの長さ
 		VBO(){}
 	public:
-		VBO(const float[][2], const float[][2], const int[], const unsigned int);
-		VBO(const float[][3], const float[][2], const int[], const unsigned int);
+		VBO(const float[][2], const float[][2], const int, const int[], const int, const unsigned int);
+		VBO(const float[][3], const float[][2], const int, const int[], const int, const unsigned int);
 		~VBO();
 
 		void draw();
