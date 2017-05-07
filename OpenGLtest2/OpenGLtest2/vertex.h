@@ -11,12 +11,12 @@ namespace VERTEX {
 	};
 	
 	//vertices[][2], textures[][2]‚©‚çVertex2D[]‚ğ¶¬‚·‚é
-	void vertexArray2D(Vertex2D*, const float[][2], const float[][2]);
+	void vertexArray2D(Vertex2D*, const float[][2], const float[][2], int);
 	//vertices[][2]‚ğ•ÏX‚·‚é
 	void vertexArray2D(Vertex2D*, const float[][2]);
 
 	//vertices[][3], textures[][2]‚©‚çVertex3D[]‚ğ¶¬‚·‚é
-	void vertexArray3D(Vertex3D*, const float[][3], const float[][2]);
+	void vertexArray3D(Vertex3D*, const float[][3], const float[][2], int);
 	//vertices[][3]‚ğ•ÏX‚·‚é
 	void vertexArray3D(Vertex3D*, const float[][3]);
 }

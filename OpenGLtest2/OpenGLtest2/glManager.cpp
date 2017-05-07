@@ -37,7 +37,7 @@ void GLManager::destroyGameManager() {
 
 void GLManager::init() {
 //	glewInit();
-	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glEnable(GL_DEPTH);
 
 	glMatrixMode(GL_PROJECTION);//‹‘ÌÏ(‹–ì)‚ğİ’è‚·‚éƒ‚[ƒh‚ÉˆÚ‚é

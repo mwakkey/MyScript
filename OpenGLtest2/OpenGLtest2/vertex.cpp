@@ -3,8 +3,7 @@
 using namespace VERTEX;
 
 
-void VERTEX::vertexArray2D(Vertex2D* vertex2D, const float vertices[][2],const float textures[][2]) {
-	int length = sizeof(vertices) / sizeof(vertices[0]);
+void VERTEX::vertexArray2D(Vertex2D* vertex2D, const float vertices[][2],const float textures[][2], int length) {
 
 	for (int i = 0; i < length; ++i) {
 		vertex2D[i].vrt[0] = vertices[i][0];
@@ -22,8 +21,7 @@ void VERTEX::vertexArray2D(Vertex2D* vertex2D, const float vertices[][2]) {
 	}
 }
 
-void VERTEX::vertexArray3D(Vertex3D* vertex3D, const float vertices[][3], const float textures[][2]) {
-	int length = sizeof(vertices) / sizeof(vertices[0]);
+void VERTEX::vertexArray3D(Vertex3D* vertex3D, const float vertices[][3], const float textures[][2], int length) {
 
 	for (int i = 0; i < length; ++i) {
 		vertex3D[i].vrt[0] = vertices[i][0];

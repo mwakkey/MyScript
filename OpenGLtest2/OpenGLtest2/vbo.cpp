@@ -10,7 +10,7 @@ VBO::VBO(const float vertices[][2], const float textures[][2], const int indices
 	:texID(textureID), dim(2), stride(sizeof(VERTEX::Vertex2D)), vrtLength(sizeof(vertices) / sizeof(vertices[0])) {
 
 	VERTEX::Vertex2D* vertex = new VERTEX::Vertex2D[vrtLength];
-	VERTEX::vertexArray2D(vertex, vertices, textures);
+	VERTEX::vertexArray2D(vertex, vertices, textures, vrtLength);
 	
 	glGenBuffers(1, &vrtID);
 	glBindBuffer(GL_ARRAY_BUFFER, vrtID);
@@ -29,7 +29,7 @@ VBO::VBO(const float vertices[][3], const float textures[][2], const int indices
 	:texID(textureID), dim(3), stride(sizeof(VERTEX::Vertex3D)), vrtLength(sizeof(vertices) / sizeof(vertices[0])) {
 
 	VERTEX::Vertex3D* vertex = new VERTEX::Vertex3D[vrtLength];
-	VERTEX::vertexArray3D(vertex, vertices, textures);
+	VERTEX::vertexArray3D(vertex, vertices, textures, vrtLength);
 
 	glGenBuffers(1, &vrtID);
 	glBindBuffer(GL_ARRAY_BUFFER, vrtID);
