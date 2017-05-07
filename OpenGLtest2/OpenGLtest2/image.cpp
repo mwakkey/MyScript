@@ -4,31 +4,31 @@
 
 #include <fstream>
 #include "Image.h"
+#include "vbo.h"
 
-using namespace GameLib;
+using namespace GL;
 
-Image::Image(std::string filename,int imageNum)
-	:imageNum(5){
+Image::Image(std::string filename, int width, int height)
+	:iWidth(width),iHeight(height) {
 	std::ifstream fstr(filename, std::ios::binary);
 
 	const size_t fileSize = static_cast<size_t>(fstr.seekg(0, fstr.end).tellg());
 	fstr.seekg(0, fstr.beg);
 	texture = new char[fileSize];
 	fstr.read(texture, fileSize);
-	
+
 }
 
 Image::~Image() {
 	delete[](texture);
 }
 
-void Image::loadImage() {
+unsigned int Image::loadImage() {
 	//画像を登録するために空きテクスチャのIDを取得
-	GLuint texID;
+	unsigned int texID;
 	glGenTextures(1, &texID);
 
 	//取得したテクスチャIDに対して操作を行うことを伝え、テクスチャデータをGPUに転送
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glBindTexture(GL_TEXTURE_2D,texID);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, iWidth, iHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, texture);
 
@@ -41,31 +41,5 @@ void Image::loadImage() {
 	//アンバインド
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	textureID=texID;
-}
-
-void Image::draw(float** position, float** uv, int uid) {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	float w = 1.0f / imageNum;
-	uv[0] = uv[0] + uid*w;
-	uv[2] = uv[2] + uid*w;
-	uv[4] = uv[4] + uid*w;
-	uv[6] = uv[6] + uid*w;
-
-	//事前にテクスチャを登録しておいて、
-	//positionとuvからVBOを用いて描画する
-
-	glBindTexture(GL_TEXTURE_2D, textureID); //描画するテクスチャ(のID)を指定
-
-	glEnable(GL_TEXTURE_2D);
-	glEnableClientState(GL_VERTEX_ARRAY); //頂点配列を有効化
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY); //テクスチャ座標配列を有効化
-
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
-
-
-	glFlush();//実行されていないOpenGLの命令を全て実行する
-
+	return texID;
 }

@@ -62,8 +62,9 @@ void GLManager::reshape(int w, int h) {
 
 void GLManager::timer(int value)
 {
-	glutPostRedisplay();//OpenGLに再描画を要請する
 	glutForceJoystickFunc();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glutPostRedisplay();//OpenGLに再描画を要請する
 	glutTimerFunc(17, GLManager::timer, 0);//17ミリ秒経過するとコールバックを行う
 }
 
@@ -81,7 +82,7 @@ void GLManager::glMain(int argc, char *argv[]) {
 	glutInitWindowSize(width, height);
 	glutInit(&argc, argv);
 	//ダブルバッファで画面のちらつきを解消する
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);//RGBAではなくRGB?
+	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);//RGBAではなくRGB?
 	glutCreateWindow("OpenGLTest");
 	init();
 	glutCallFunc();//コールバック関数を設定

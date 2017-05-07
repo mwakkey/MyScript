@@ -4,17 +4,22 @@
 namespace GL {
 	class VBO {
 	private:
-		unsigned int vrtID;//GLuint
-		unsigned int idxID;//GLuint
+		unsigned int vrtID;//Vertex配列の登録ID(GLuint)
+		unsigned int idxID;//Vertexのインデックスを表す配列の登録ID(GLuint)
+		unsigned int texID;//テクスチャの登録ID(GLuint)
 
-		int dim;//頂点データのうち、頂点座標
+		int dim;//頂点データのうち、頂点座標の次元数
 		int stride;//頂点データの間隔
-		int vrtSize;//頂点データの長さ
-		VBO() {}
+		int vrtLength;//頂点データの長さ
+		VBO(){}
 	public:
-		VBO(const VERTEX::Vertex[], int, const int[], int);
+		VBO(const float[][2], const float[][2], const int[], const unsigned int);
+		VBO(const float[][3], const float[][2], const int[], const unsigned int);
 		~VBO();
+
 		void draw();
-		void modify(VERTEX::Vertex[]);
+		void modify(const float[][2]);
+		void modify(const float[][3]);
+
 	};
 }

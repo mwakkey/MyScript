@@ -160,31 +160,26 @@ int main(int argc, char* argv[])
 #include "vbo.h"
 
 void drawImage() {
-	GameLib::Image* test = new GameLib::Image("image/image.raw", 4);
-	test->loadImage();
+	GL::Image test("image/image.raw", 128, 32);
 
-	float position[] = { 100,100,
-		400,100,
-		400,400,
-		100,400 };
-	float uvs[] = { 1.0,0.0,
-		1.0,0.25,
-		0.0,0.25,
-		0.0,0.0 };
+	float position[4][2] ={
+		{100,100},
+		{400,100},
+		{400,400},
+		{100,400} };
+	float uvs[4][2] = {
+		{1.0,0.0},
+		{1.0,0.25},
+		{0.0,0.25},
+		{0.0,0.0} };
+	int indices[5] = {0,1,2,3,0};
 
-	test->draw(position, uvs, 2);
+	GL::VBO vbo(position,uvs,indices, test.loadImage());
 
+
+	vbo.draw();
 }
 
-void drawImage2() {
-	float vertices[] = { 100,100,
-		400,100,
-		400,400,
-		100,400 };
-	int indices[] = { 0,1,3,1,2,3 };
-	GL::VBO* vbo = new GL::VBO(0, vertices, 1, indices, 2);
-
-}
 
 int main(int argc, char *argv[])
 {

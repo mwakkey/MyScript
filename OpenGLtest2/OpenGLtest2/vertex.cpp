@@ -2,43 +2,43 @@
 
 using namespace VERTEX;
 
-Vertex::Vertex()
-	:dim(0) {
-	vrt = 0;
-	tex = 0;
-}
 
-Vertex::Vertex(const float vertice[],const float texture[2],const int dimension)
-	:dim(dimension){
-	vrt = new float[dim];
-	tex = new float[2];
-}
-Vertex::~Vertex() {
-	delete[] vrt;
-	delete[] tex;
-}
-
-Vertex& Vertex::operator=(const Vertex& vertex) {
-	delete[] vrt;
-	this->vrt = vertex.vrt;
-
-	delete[] tex;
-	this->tex = vertex.tex;
-
-	this->dim = vertex.dim;
-	return *this;
-}
-
-int Vertex::getDim() {
-	return dim;
-}
-
-Vertex* VERTEX::vertexArray(float** vertices, float** indices, int dim, int length) {
-	Vertex* vertex = new Vertex[length];
+void VERTEX::vertexArray2D(Vertex2D* vertex2D, const float vertices[][2],const float textures[][2]) {
+	int length = sizeof(vertices) / sizeof(vertices[0]);
 
 	for (int i = 0; i < length; ++i) {
-		vertex[i] = Vertex(vertices[i], indices[i], dim);
+		vertex2D[i].vrt[0] = vertices[i][0];
+		vertex2D[i].vrt[1] = vertices[i][1];
+		vertex2D[i].tex[0] = textures[i][0];
+		vertex2D[i].tex[1] = textures[i][1];
 	}
+}
+void VERTEX::vertexArray2D(Vertex2D* vertex2D, const float vertices[][2]) {
+	int length = sizeof(vertices) / sizeof(vertices[0]);
 
-	return vertex;
+	for (int i = 0; i < length; ++i) {
+		vertex2D[i].vrt[0] = vertices[i][0];
+		vertex2D[i].vrt[1] = vertices[i][1];
+	}
+}
+
+void VERTEX::vertexArray3D(Vertex3D* vertex3D, const float vertices[][3], const float textures[][2]) {
+	int length = sizeof(vertices) / sizeof(vertices[0]);
+
+	for (int i = 0; i < length; ++i) {
+		vertex3D[i].vrt[0] = vertices[i][0];
+		vertex3D[i].vrt[1] = vertices[i][1];
+		vertex3D[i].vrt[2] = vertices[i][2];
+		vertex3D[i].tex[0] = textures[i][0];
+		vertex3D[i].tex[1] = textures[i][1];
+	}
+}
+void VERTEX::vertexArray3D(Vertex3D* vertex3D, const float vertices[][3]) {
+	int length = sizeof(vertices) / sizeof(vertices[0]);
+
+	for (int i = 0; i < length; ++i) {
+		vertex3D[i].vrt[0] = vertices[i][0];
+		vertex3D[i].vrt[1] = vertices[i][1];
+		vertex3D[i].vrt[2] = vertices[i][2];
+	}
 }
