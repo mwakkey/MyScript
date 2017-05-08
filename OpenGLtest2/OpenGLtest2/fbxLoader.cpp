@@ -23,7 +23,7 @@ void FbxLoader::fbxImport(const char* filePath) {
 void FbxLoader::fbxSceneImport() {
 	if (!fbxImporter->Import(fbxScene)) {
 		fbxManager->Destroy();
-		rootNode - fbxScene->GetRootNode();
+		rootNode = fbxScene->GetRootNode();
 	}
 	else{
 		fbxImporter->Destroy();
@@ -33,10 +33,4 @@ void FbxLoader::fbxSceneImport() {
 
 void FbxLoader::fbxMeshImport() {
 	getAttrib(rootNode, fbxMesh);
-	polygonNum = fbxMesh->GetPolygonCount();
-	polygonVertexNum = fbxMesh->GetPolygonVertexCount();
-	indexAry = fbxMesh->GetPolygonVertices();
-	
-	controlAry = fbxMesh->GetControlPoints();//’¸“_À•W”z—ñ
-
 }

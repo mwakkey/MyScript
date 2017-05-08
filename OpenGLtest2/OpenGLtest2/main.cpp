@@ -118,9 +118,11 @@ int main(int argc, char* argv[])
 }
 */
 
-#include "glManager.h"
-int main(int argc, char *argv[])
-{
+//#include "glManager.h"
+
+
+//int main(int argc, char *argv[])
+//{
 	/*
 	std::cout << std::endl;
 	//SimplexNoise::setNoiseSeed();
@@ -148,7 +150,51 @@ int main(int argc, char *argv[])
 	csv.csvWrite(data);
 	*/
 
-	glManager::glMain(argc, argv);
+//	glManager::glMain(argc, argv);
 
+//	return 0;
+//}
+
+#include "Image.h"
+#include "glManager.h"
+#include "vbo.h"
+#include <iostream>
+
+void drawImage() {
+	GL::Image* test=new GL::Image("image/image.raw", 128, 32);
+	unsigned int texid = test->loadImage();
+	delete test;
+
+	float position[4][2] ={
+		{100,100},
+		{400,100},
+		{400,400},
+		{100,400} };
+	float uvs[4][2] = {
+		{1.0,0.0},
+		{1.0,0.25},
+		{0.0,0.25},
+		{0.0,0.0} };
+	int indices[5] = {0,1,2,3,0};
+
+	GL::VBO* vbo = new GL::VBO(position, uvs, 4, indices, 5,texid);
+
+
+	vbo->draw();
+
+	delete vbo;
+
+}
+
+
+int main(int argc, char *argv[])
+{
+	GL::GLManager::createGameManager(640, 480, drawImage);
+
+//	while (true) {
+		GL::GLManager::instance()->glMain(argc, argv);
+//	}
+	GL::GLManager::destroyGameManager();
+	
 	return 0;
 }

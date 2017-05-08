@@ -7,12 +7,7 @@ private:
 	fbxsdk_2015_1::FbxImporter* fbxImporter;
 	fbxsdk_2015_1::FbxScene* fbxScene;//3D空間を構成するオブジェクトのコンテナ
 	fbxsdk_2015_1::FbxNode* rootNode;//fbxSceneのルートノード
-
-	FbxMesh* fbxMesh;
-	int polygonNum;			//総ポリゴン数
-	int polygonVertexNum;	//ポリゴン頂点インデックス数
-	int* indexAry;			//全ポリゴン頂点のインデックス配列
-	FbxVector4* controlAry; //メッシュに含まれる頂点座標の配列
+	fbxsdk_2015_1::FbxMesh* fbxMesh;
 
 public:
 	FbxLoader();

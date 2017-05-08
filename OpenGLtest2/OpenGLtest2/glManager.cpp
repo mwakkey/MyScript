@@ -1,7 +1,104 @@
-#pragma comment(linker, "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
-#pragma comment(lib, "glew32.lib")
+
 #include <GL/glew.h>
 #include <GL/freeglut.h>
+#include "glManager.h"
+
+using namespace GL;
+
+GLManager* GLManager::mInstance = 0;
+int GLManager::width = 0;
+int GLManager::height = 0;
+void(*GL::GLManager::display)() = 0;
+
+GLManager::GLManager(const int w, const int h, void(*disp)()){
+	width = w;
+	height = h;
+	display = disp;
+}
+GLManager::~GLManager() {
+	;
+}
+
+GLManager* GLManager::instance() {
+	return mInstance;
+}
+
+void GLManager::createGameManager(const int w, const int h, void(*disp)()) {
+//既にインスタンス化されていれば何もせず処理を終了
+	if (!mInstance) {
+		mInstance = new GLManager(w, h, disp);
+	}
+}
+
+void GLManager::destroyGameManager() {
+	delete mInstance;
+	mInstance = 0;
+}
+
+void GLManager::init() {
+//	glewInit();
+	glClearColor(0.0, 0.0, 0.0, 1.0);
+	glEnable(GL_DEPTH);
+
+	glMatrixMode(GL_PROJECTION);//視体積(視野)を設定するモードに移る
+	glLoadIdentity();//行列リセット(選択した行列を単位行列にする)
+	glOrtho(0, width, 0, height, 10, 0);//平行投影モードで2D描画を行う
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+//	glManager::glsl = new GLSL;
+//	glsl->initGlsl("glsltest.vert", "glsltest.frag");
+//	glsl->glslOn();
+}
+
+void GLManager::reshape(int w, int h) {
+	glViewport(0, 0, w, h);//ビューポート(表示領域)を設定
+	glMatrixMode(GL_PROJECTION);//視体積(視野)を設定するモードに移る
+	glLoadIdentity();//行列リセット(選択した行列を単位行列にする)
+	glOrtho(0, width, 0, height, 10, 0);//平行投影モードで2D描画を行う
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
+void GLManager::timer(int value)
+{
+	glutForceJoystickFunc();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glutPostRedisplay();//OpenGLに再描画を要請する
+	glutTimerFunc(17, GLManager::timer, 0);//17ミリ秒経過するとコールバックを行う
+}
+
+
+void GLManager::glutCallFunc()
+{
+	glutDisplayFunc(display);
+
+//	glutReshapeFunc(reshape);//ウィンドウサイズが変更されたときに呼ばれる関数
+	glutTimerFunc(17, GLManager::timer, 0);
+}
+
+void GLManager::glMain(int argc, char *argv[]) {
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(width, height);
+	glutInit(&argc, argv);
+	//ダブルバッファで画面のちらつきを解消する
+	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);//RGBAではなくRGB?
+	glutCreateWindow("OpenGLTest");
+	init();
+	glutCallFunc();//コールバック関数を設定
+
+
+	glutMainLoop();
+
+
+//	glsl->glslOff();
+//	delete(glsl);
+	return;
+}
+
+
+
+/*
 #include "glsl.h"
 #include "camera.h"
 #include "gameManager.h"
@@ -17,6 +114,7 @@ namespace glManager {
 	auto myDisp = std::mem_fn(&GameManager::draw);
 	auto myLookAt = std::mem_fn(&Camera::lookAt);
 }
+
 
 
 //具体的な描画処理
@@ -108,3 +206,4 @@ void glManager::glMain(int argc, char *argv[]){
 	delete(glsl);
 	return;
 }
+*/

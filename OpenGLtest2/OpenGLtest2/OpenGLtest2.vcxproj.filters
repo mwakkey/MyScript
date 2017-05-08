@@ -37,15 +37,6 @@
     <Filter Include="ソース ファイル\NeuralNet">
       <UniqueIdentifier>{36c5b9b0-c94e-4f51-9c40-4bffb685d00b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Util">
-      <UniqueIdentifier>{82199c18-2148-46f4-9fe4-fd6a829988e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Model">
-      <UniqueIdentifier>{be1caa8e-d7fb-4690-8ce3-413303a99f47}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game">
-      <UniqueIdentifier>{3f53e553-05db-4cd2-8fde-cfedd74b0e9b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,41 +84,23 @@
     <ClCompile Include="reactionDiffusion.cpp">
       <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
-    <ClCompile Include="glVertexArray.cpp">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="quaternion.cpp">
       <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
     <ClCompile Include="calculation.cpp">
       <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
-    <ClCompile Include="fbxUtil.cpp">
-      <Filter>ソース ファイル\Util</Filter>
+    <ClCompile Include="image.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="fbxLoader.cpp">
-      <Filter>ソース ファイル\Model</Filter>
+    <ClCompile Include="freamwork.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="gameManager.cpp">
-      <Filter>ソース ファイル\Game</Filter>
+    <ClCompile Include="vertex.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>ソース ファイル\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="character.cpp">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="model.cpp">
-      <Filter>ソース ファイル\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="object.cpp">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="objLoader.cpp">
-      <Filter>ソース ファイル\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="playable.cpp">
-      <Filter>ソース ファイル\Game</Filter>
+    <ClCompile Include="vbo.cpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,14 +158,8 @@
     <ClInclude Include="reactionDiffusion.h">
       <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
-    <ClInclude Include="stringUtil.h">
-      <Filter>ソース ファイル\Util</Filter>
-    </ClInclude>
     <ClInclude Include="multiVar.h">
       <Filter>ソース ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="glVertexArray.h">
-      <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="quaternion.h">
       <Filter>ソース ファイル\Math</Filter>
@@ -203,35 +170,17 @@
     <ClInclude Include="innerProd.h">
       <Filter>ソース ファイル\Math</Filter>
     </ClInclude>
-    <ClInclude Include="fbxUtil.h">
-      <Filter>ソース ファイル\Util</Filter>
+    <ClInclude Include="image.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="fbxLoader.h">
-      <Filter>ソース ファイル\Model</Filter>
+    <ClInclude Include="freamwork.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="gameManager.h">
-      <Filter>ソース ファイル\Game</Filter>
+    <ClInclude Include="vertex.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>ソース ファイル\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="character.h">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="model.h">
-      <Filter>ソース ファイル\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="object.h">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="objLoader.h">
-      <Filter>ソース ファイル\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="playable.h">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="tBuffer.h">
-      <Filter>ソース ファイル\Model</Filter>
+    <ClInclude Include="vbo.h">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
